@@ -1,0 +1,6158 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.taikun.cloud/Taikun_Open_Cloud_Platform/Taikun_OCP-Neutron/Quality_of_Service/">
+      
+      
+        <link rel="prev" href="../Network_CLI_Guide/">
+      
+      
+        <link rel="next" href="../Role-Based_Access_Control/">
+      
+      
+      <link rel="icon" href="https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/Icon1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Quality of Service (QoS) - Taikun Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quality-of-service-qos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Taikun Documentation" class="md-header__button md-logo" aria-label="Taikun Documentation" data-md-component="logo">
+      
+  <img src="https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/taikun_logo.webp" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Taikun Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quality of Service (QoS)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Taikun Documentation" class="md-nav__button md-logo" aria-label="Taikun Documentation" data-md-component="logo">
+      
+  <img src="https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/taikun_logo.webp" alt="logo">
+
+    </a>
+    Taikun Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Account Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Account Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Add_and_Delete_Users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add/Delete Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Billing_of_your_Taikun_account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing of your Taikun account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Delete_Account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Delete Account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Email_notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Email Notifications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Keycloak_SSO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keycloak SSO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/My_Profile_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    My Profile Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Organizations_in_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Organizations in Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Password_Reset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Password Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/Single_Logout_Mechanism/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single Logout (SLO) Mechanism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Account_Management/User_Types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Advanced_Configuration/Exposing_Applications_with_an_Internet-Facing_Load_Balancer_for_Zadara_cloud_in_Kubernetes_via_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exposing Applications with an Internet-Facing Load Balancer for Zadara Cloud in Kubernetes via Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Advanced_Configuration/LoadBalancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Advanced_Configuration/Slack_Configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slack Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Advanced_Configuration/Taikun_API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Advanced_Configuration/Taikun_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Advanced_Configuration/Terraform_Provider_for_Taikun_Workshop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terraform Provider for Taikun Workshop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting_Started/Accessing_Cluster_with_Kubeconfig/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing Cluster with Kubeconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting_Started/Connect_your_Cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect your Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting_Started/Creating_Kubernetes_cluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating Kubernetes cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting_Started/From_Login_to_Production_Cluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Login to Production Cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting_Started/Project_Creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Creation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting_Started/Taikun_Infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Infra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managing your Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Managing your Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/AI_assistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI Assistant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Create_a_Project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Create_a_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Enable_autoscaler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enable Autoscaler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Flavor_Information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flavor Information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Installing_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Kubernetes_Upgrades_with_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Upgrades with Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Overview_of_Taikun_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview of Taikun Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Project_Details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/Supported_Application_Runtime_Environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported Application Runtime Environments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/VMs_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VMs Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Managing_your_Projects/vCluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vCluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring your Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring your Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Audit_Log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audit Log
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Available_Monitoring_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Available Monitoring Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Chargeback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chargeback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Configure_Alerting_Profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure Alerting Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Enable_Monitoring_in_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enable Monitoring in Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Events%2C_Logs%2C_and_Metrics_of_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Events, Logs, and Metrics of Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Kubernetes_Dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes dashboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Live_Servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Project_Quotas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Quotas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Showback_rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Showback rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Taikun_Notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Notifications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Taikun_Requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Ticketing_in_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ticketing in Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Monitoring_your_Projects/Usage_Reports/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage Reports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Navigating in Taikun
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Navigating in Taikun
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Billing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Configurations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configurations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Partner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Navigating_in_Taikun/Taikun_User_Interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun User Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Profile Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Profile Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Profile_Management/Access_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Profile_Management/Alerting_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alerting Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Profile_Management/Creating_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Profile_Management/Kubernetes_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Profile_Management/Policy_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Policy Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Profile_Management/Standalone_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Standalone Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Supported Cloud Providers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Supported Cloud Providers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/All_Cloud_Providers_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    All Cloud Providers Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/Amazon_Web_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amazon Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/Google_Cloud_Platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Cloud Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/Microsoft_Azure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Azure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/OpenStack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/Proxmox/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proxmox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/Red_Hat_OpenShift/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Red Hat OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/VMware_Tanzu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VMware Tanzu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/VMware_vSphere/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VMware vSphere
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/Zadara/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zadara
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Supported_Cloud_Providers/Zededa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zededa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun CloudWorks Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/ArtifactHub_Repositories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ArtifactHub Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Container_images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Exposing_an_Application_Through_the_Bastion_Load_Balancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exposing an Application Through the Bastion Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Horizontal_Pod_Autoscaling_in_Kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Horizontal Pod Autoscaling in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Importing_Kubernetes_Cluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importing Kubernetes Cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Ingress_in_Kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ingress in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Kubernetes_DNS_Pod_Service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes DNS Pod Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Kubernetes_Persistent_Volumes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Persistent Volumes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Kubernetes_Storage_Volumes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Storage Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Kubernetes_Taints_and_Tolerations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Taints and Tolerations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Kubernetes_Volume_Snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Volume Snapshots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Network_Plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Plugins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Network_Policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Policies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Nexus_Funcionality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nexus Functionality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Prometheus_for_Taikun_CloudWorks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus for Taikun CloudWorks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Serverless_Kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serverless Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Service%2C_Load_Balancing%2C_and_Networking_in_Kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Services, Load Balancing, and Networking in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Taikun_CloudWorks_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Taikun_CloudWorks_Operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Taikun_Compatibility_Matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Compatibility Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Tasks_and_Pipelines_in_Taikun_CloudWorks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tasks and Pipelines in Taikun CloudWorks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_CloudWorks_Overview/Tekton_Operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tekton Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun Dictionary
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun Dictionary
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Taikun_Dictionary/Our_Lingo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Our Lingo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun Open Cloud Platform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun Open Cloud Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP_-_Skydive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP – Skydive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Barbican
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Barbican
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Barbican/Key_Manager_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Key Manager Overview (barbican)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_3" id="__nav_12_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Ceph
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_3">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Ceph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ceph/Block_Devices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ceph/Ceph_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ceph/Ceph_Disaster_Recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Disaster Recovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ceph/Ceph_Encryption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Encryption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ceph/Ceph_Integration_with_Keystone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Integration with Keystone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ceph/Ceph_Performance_Testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Performance Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_4" id="__nav_12_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Cinder
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_4">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Cinder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Cinder/Block_Storage_Overview-cinder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Storage Overview (cinder)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Cinder/Manage_Volumes_via_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Volumes via CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Cinder/Volume_Backups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volume Backups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Cinder/Volume_encryption_supported_by_the_key_maager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volume encryption supported by the key manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_5" id="__nav_12_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Designate
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_5">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Designate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Designate/Introduction_to_Designate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Designate (DNS-as-a-Service)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_6" id="__nav_12_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Glance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_6">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Glance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Glance/Image_Service_Overview_glance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Service Overview (glance)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Glance/Manage_images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_7" id="__nav_12_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Heat
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_7">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Heat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Heat/Orchestration_Service_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Orchestration Service Overview (heat)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_8" id="__nav_12_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Horizon
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_8">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Horizon
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Horizon/Launch_Virtual_Machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Launch Virtual Machines (Instances)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Horizon/Manage_Volumes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Volumes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Horizon/Taikun_OCP_Dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Dashboard (horizon)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Horizon/View_and_Manage_Quotas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    View and Manage Quotas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_9" id="__nav_12_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Ironic
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_9">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Ironic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/Ansible_Deploy_Interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ansible Deploy Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/Bare_Metal_service_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bare Metal service overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/Drivers%2C_Hardware_Types_and_Hardware_Interfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drivers, Hardware Types and Hardware Interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/Enrollment_of_Hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enrollment of Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/Hardware_Inspection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Inspection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/High_Availability_and_Scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High Availability and Scalability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/Ironic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ironic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/Ironic_Console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ironic Console
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Ironic/iDRAC_Driver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iDRAC Driver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_10" id="__nav_12_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Keystone
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_10">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Keystone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Keystone/Configuring_Keystone_for_Federation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring Keystone for Federation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Keystone/Create_a_Domain%2C_Projects%2C_Users%2C_and_Roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Domain, Projects, Users, and Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Keystone/Keystone_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keystone Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Keystone/Keystone_Configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keystone Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Keystone/Manage_Projects%2C_Users%2C_and_Roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Projects, Users, and Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Keystone/Middleware_Audit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Middleware Audit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Keystone/Role_Types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Role Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_11" id="__nav_12_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Manila
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_11">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Manila
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Manila/Administration_Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Manila/Shared_Filesystems_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared Filesystems Overview (manila)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_12" id="__nav_12_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Mojo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_12">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Mojo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Mojo/Add_a_New_OS_Bundle_to_Taikun_OCP_Baremetal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a New OS Bundle to Taikun OCP Baremetal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Mojo/Create_and_Manage_Node_Pools_in_Taikun_OCP_Baremetal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create and Manage Node Pools in Taikun OCP Baremetal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Mojo/Installing_Taikun_OCP_Baremetal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Taikun OCP Baremetal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Mojo/Taikun_OCP_Baremetal_Keycloak_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Baremetal Keycloak integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Mojo/Taikun_OCP_Baremetal_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Baremetal Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_13" id="__nav_12_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Monitoring
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_13">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Monitoring/Prometheus_Alertmanager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus Alertmanager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Monitoring/Prometheus_Service_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus Service Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12_14" id="__nav_12_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Neutron
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12_14">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Neutron
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Floating_IP_Port_Forwarding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Floating IP Port Forwarding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Network_CLI_Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network CLI Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Quality of Service (QoS)
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Role-Based_Access_Control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Role-Based Access Control (RBAC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Subnet_Pools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subnet Pools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Taikun_OCP_Networking_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Networking Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_15" id="__nav_12_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Nova
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_15">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Nova
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Attaching_virtual_GPU_devices_to_guests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attaching virtual GPU devices to guests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Availability_Zones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Availability Zones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Compute-nova/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute (nova)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Emulated_Trusted_Platform_Module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emulated Trusted Platform Module (vTPM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Flavors_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flavors Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Host_Aggregates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Host Aggregates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Hypervisors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hypervisors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Manage_Project_Security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Project Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Manage_Quotas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Quotas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Nova/Show_Usage_Statistics_for_Hosts_and_Instances/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Show Usage Statistics for Hosts and Instances
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_16" id="__nav_12_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Octavia
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_16">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Octavia
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Octavia/Devstack_with_Octavia_Load_Balancing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Devstack with Octavia Load Balancing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Octavia/Load_Balancing_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Balancing Overview (octavia)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_17" id="__nav_12_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_17">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Automatic_Migration_of_VMs_Upon_Failure_of_Host/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatic Migration of VMs Upon Failure of Host
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/CLI_Client/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/CLI_Command_List/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Command List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Configure_Postfix_CLient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure Postfix Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Get_Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Getting_Started_with_Ceilometer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started with Ceilometer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Install_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Maintanance_Mode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Maintanance Mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Overcommitting_CPU_and_RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overcommitting CPU and RAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Routers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/SDK_Reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Security_Group_Rules_in_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Group Rules in CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Supported_OS_Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported OS Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Taikun_OCP_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Taikun_OCP_Limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Limits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_OCP-Overview/Using_Mojo_with_Taikun_OCP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Mojo with Taikun OCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="quality-of-service-qos">Quality of Service (QoS)</h1>
+<p>QoS is defined as the ability to guarantee certain network requirements like bandwidth, latency, jitter, and reliability in order to satisfy a Service Level Agreement (SLA) between an application provider and end users.</p>
+<p>Network devices such as switches and routers can mark traffic so that it is handled with a higher priority to fulfill the QoS conditions agreed under the SLA. In other cases, certain network traffic such as Voice over IP (VoIP) and video streaming needs to be transmitted with minimal bandwidth constraints. On a system without network QoS management, all traffic will be transmitted in a “best-effort” manner making it impossible to guarantee service delivery to customers.</p>
+<p>QoS is an advanced service plug-in. QoS is decoupled from the rest of the OpenStack Networking code on multiple levels and it is available through the ml2 extension driver.</p>
+<p>Details about the DB models, API extension, and use cases are out of the scope of this guide but can be found in the <a href="https://specs.openstack.org/openstack/neutron-specs/specs/liberty/qos-api-extension.html">Neutron QoS specification</a>.</p>
+<h1 id="supported-qos-rule-types">Supported QoS rule types</h1>
+<p>QoS supported rule types are now available as <code>VALID_RULE_TYPES</code> in <a href="https://opendev.org/openstack/neutron-lib/src/branch/master/neutron_lib/services/qos/constants.py">QoS rule types</a>:</p>
+<ul>
+<li>
+<p>bandwidth_limit: Bandwidth limitations on networks, ports or floating IPs.</p>
+</li>
+<li>
+<p>packet_rate_limit: Packet rate limitations on certain types of traffic.</p>
+</li>
+<li>
+<p>dscp_marking: Marking network traffic with a DSCP value.</p>
+</li>
+<li>
+<p>minimum_bandwidth: Minimum bandwidth constraints on certain types of traffic.</p>
+</li>
+<li>
+<p>minimum_packet_rate: Minimum packet rate constraints on certain types of traffic.</p>
+</li>
+</ul>
+<p>Any QoS driver can claim support for some QoS rule types by providing a driver property called <code>supported_rules</code>, the QoS driver manager will recalculate rule types dynamically that the QoS driver supports. In the most simple case, the property can be represented by a simple Python list defined on the class.</p>
+<p>The following table shows the Networking back ends, QoS supported rules, and traffic directions (from the VM point of view).</p>
+<p><strong>Networking back ends, supported rules, and traffic direction</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule \ Back End</th>
+<th>Open vSwitch</th>
+<th>SR-IOV</th>
+<th>Linux Bridge</th>
+<th>OVN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bandwidth limit</td>
+<td>Egress \ Ingress</td>
+<td>Egress (1)</td>
+<td>Egress \ Ingress</td>
+<td>Egress \ Ingress</td>
+</tr>
+<tr>
+<td>Packet rate limit</td>
+<td>Egress \ Ingress</td>
+<td>•</td>
+<td>•</td>
+<td>•</td>
+</tr>
+<tr>
+<td>Minimum bandwidth</td>
+<td>Egress \ Ingress (2)</td>
+<td>Egress \ Ingress (2)</td>
+<td>•</td>
+<td>•</td>
+</tr>
+<tr>
+<td>Minimum packet rate</td>
+<td>•</td>
+<td>•</td>
+<td>•</td>
+<td>•</td>
+</tr>
+<tr>
+<td>DSCP marking</td>
+<td>Egress</td>
+<td>•</td>
+<td>Egress</td>
+<td>Egress</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note
+1. Max burst parameter is skipped because it is not supported by the IP tool.
+2. Placement based enforcement works for both egress and ingress directions, but dataplane enforcement depends on the backend.</p>
+</blockquote>
+<p><strong>Neutron backends, supported directions and enforcement types for Minimum Bandwidth rule</strong></p>
+<table>
+<thead>
+<tr>
+<th>Enforcement Type Backend</th>
+<th>Open vSwitch</th>
+<th>SR-IOV</th>
+<th>Linux Bridge</th>
+<th>OVN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataplane</td>
+<td>Egress (3)</td>
+<td>Egress (1)</td>
+<td>•</td>
+<td>•</td>
+</tr>
+<tr>
+<td>Placement</td>
+<td>Egress/Ingress (2)</td>
+<td>Egress/Ingress (2)</td>
+<td>•</td>
+<td>•</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note
+1. Since Newton
+2. Since Stein
+3. Open vSwitch minimum bandwidth support is only implemented for egress direction and only for networks without tunneled traffic (only VLAN and flat network types).</p>
+<p>Note
+The SR-IOV agent does not support dataplane enforcement for ports with <code>direct-physical</code> vnic_type. However since Yoga the Placement enforcement is supported for this vnic_type too.</p>
+</blockquote>
+<p><strong>Neutron backends, supported directions and enforcement types for Minimum Packet Rate rule</strong></p>
+<table>
+<thead>
+<tr>
+<th>Enforcement Type Backend</th>
+<th>Open vSwitch</th>
+<th>SR-IOV</th>
+<th>Linux Bridge</th>
+<th>OVN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataplane</td>
+<td>•</td>
+<td>•</td>
+<td>•</td>
+<td>•</td>
+</tr>
+<tr>
+<td>Placement</td>
+<td>Any(1)/Engress/Ingress(2)</td>
+<td>•</td>
+<td>•</td>
+<td>•</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note
+1. Minimum packet rate rule supports <code>any</code> direction that can be used with non-hardware-offloaded OVS deployments, where packets processed from both ingress and egress directions are handled by the same set of CPU cores.
+2. Since Yoga.</p>
+</blockquote>
+<p>For an ml2 plug-in, the list of supported QoS rule types and parameters is defined as a common subset of rules supported by all active mechanism drivers. A QoS rule is always attached to a QoS policy. When a rule is created or updated:</p>
+<ul>
+<li>
+<p>The QoS plug-in will check if this rule and parameters are supported by any active mechanism driver if the QoS policy is not attached to any port or network.</p>
+</li>
+<li>
+<p>The QoS plug-in will check if this rule and parameters are supported by the mechanism drivers managing those ports if the QoS policy is attached to any port or network.</p>
+</li>
+</ul>
+<h2 id="valid-dscp-marks">Valid DSCP Marks</h2>
+<p>Valid DSCP mark values are even numbers between 0 and 56, except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:</p>
+<p>0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 46, 48, 56</p>
+<h1 id="l3-qos-support">L3 QoS support</h1>
+<p>The Neutron L3 services have implemented their own QoS extensions. Currently only bandwidth limit QoS is provided. This is the L3 QoS extension list:</p>
+<ul>
+<li>
+<p>Floating IP bandwidth limit: the rate limit is applied per floating IP address independently.</p>
+</li>
+<li>
+<p>Gateway IP bandwidth limit: the rate limit is applied in the router namespace gateway port (or in the SNAT namespace in case of DVR edge router). The rate limit applies to the gateway IP; that means all traffic using this gateway IP will be limited. This rate limit does not apply to the floating IP traffic.</p>
+</li>
+</ul>
+<p>L3 services that provide QoS extensions:</p>
+<ul>
+<li>
+<p>L3 router: implements the rate limit using <a href="https://man7.org/linux/man-pages/man8/tc.8.html">Linux TC</a>.</p>
+</li>
+<li>
+<p>OVN L3: implements the rate limit using the <a href="https://man7.org/linux/man-pages/man8/ovn-nbctl.8.html#LOGICAL_SWITCH_QOS_RULE_COMMANDS">OVN QoS metering rules</a>.</p>
+</li>
+</ul>
+<p>The following table shows the L3 service, the QoS supported extension, and traffic directions (from the VM point of view) for <strong>bandwidth limiting</strong>.</p>
+<p><strong>L3 service, supported extension, and traffic direction</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule\L3 service</th>
+<th>L3 Router</th>
+<th>OVN L3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Floating IP</td>
+<td>Egress\Ingress</td>
+<td>Egress\Ingress</td>
+</tr>
+<tr>
+<td>Gateway IP</td>
+<td>Egress\Ingress</td>
+<td>•</td>
+</tr>
+</tbody>
+</table>
+<h1 id="configuration">Configuration</h1>
+<p>To enable the service on a cloud with the architecture described in <a href="https://docs.openstack.org/security-guide/networking/architecture.html#openstack-networking-service-placement-on-physical-servers">Networking architecture</a>, follow the steps below:</p>
+<p>On the controller nodes:</p>
+<p>1. Add the QoS service to the <code>service_plugins</code> setting in <code>/etc/neutron/neutron.conf</code>. For example:</p>
+<pre><code>service_plugins = router,metering,qos
+</code></pre>
+<p>2. Optionally, set the needed <code>notification_drivers</code> in the <code>[qos]</code> section in <code>/etc/neutron/neutron.conf</code> (<code>message_queue</code> is the default).</p>
+<p>3. Optionally, in order to enable the floating IP QoS extension <code>qos-fip</code>, set the <code>service_plugins</code> option in <code>/etc/neutron/neutron.conf</code> to include both <code>router</code> and <code>qos</code>. For example:</p>
+<pre><code>service_plugins = router,qos
+</code></pre>
+<p>4. In <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code>, add <code>qos</code> to <code>extension_drivers</code> in the <code>[ml2]</code> section. For example:</p>
+<pre><code>[ml2]
+extension_drivers = port_security,qos
+</code></pre>
+<p>5. Edit the configuration file for the agent you are using and set the <code>extensions</code> to include <code>qos</code> in the <code>[agent]</code> section of the configuration file. The agent configuration file will reside in <code>/etc/neutron/plugins/ml2/&lt;agent_name&gt;_agent.ini</code> where <code>agent_name</code> is the name of the agent being used (for example <code>openvswitch</code>). For example:</p>
+<pre><code>[agent]
+extensions = qos
+</code></pre>
+<p>On the network and compute nodes:</p>
+<p>1. Edit the configuration file for the agent you are using and set the <code>extensions</code> to include <code>qos</code> in the <code>[agent]</code> section of the configuration file. The agent configuration file will reside in <code>/etc/neutron/plugins/ml2/&lt;agent_name&gt;_agent.ini</code> where <code>agent_name</code> is the name of the agent being used (for example <code>openvswitch</code>). For example:</p>
+<pre><code>[agent]
+extensions = qos
+</code></pre>
+<p>2. Optionally, in order to enable QoS for floating IPs, set the <code>extensions</code> option in the <code>[agent]</code> section of <code>/etc/neutron/l3_agent.ini</code> to include <code>fip_qos</code>. If <code>dvr</code> is enabled, this has to be done for all the L3 agents. For example:</p>
+<pre><code>[agent]
+extensions = fip_qos
+</code></pre>
+<blockquote>
+<p>Note
+Floating IP associated to neutron port or to port forwarding can all have bandwidth limit since Stein release. These neutron server side and agent side extension configs will enable it once for all.</p>
+</blockquote>
+<p>Optionally, in order to enable QoS for router gateway IPs, set the <code>extensions</code> option in the <code>[agent]</code> section of <code>/etc/neutron/l3_agent.ini</code> to include <code>gateway_ip_qos</code>. Set this to all the <code>dvr_snat</code> or <code>legacy</code> L3 agents. For example:</p>
+<pre><code>[agent]
+extensions = gateway_ip_qos
+</code></pre>
+<p>And <code>gateway_ip_qos</code> should work together with the <code>fip_qos</code> in L3 agent for centralized routers, then all L3 IPs with binding QoS policy can be limited under the QoS bandwidth limit rules:</p>
+<pre><code>[agent]
+extensions = fip_qos, gateway_ip_qos
+</code></pre>
+<p>2. As rate limit doesn’t work on Open vSwitch’s <code>internal</code> ports, optionally, as a workaround, to make QoS bandwidth limit work on router’s gateway ports, set <code>ovs_use_veth</code> to <code>True</code> in <code>DEFAULT</code> section in <code>/etc/neutron/l3_agent.ini</code></p>
+<pre><code>[DEFAULT]
+ovs_use_veth = True
+</code></pre>
+<blockquote>
+<p>Note
+QoS currently works with ml2 only (SR-IOV, Open vSwitch, and linuxbridge are drivers enabled for QoS).</p>
+</blockquote>
+<h2 id="dscp-marking-on-outer-header-for-overlay-networks">DSCP marking on outer header for overlay networks</h2>
+<p>When using overlay networks (e.g., VxLAN), the DSCP marking rule only applies to the inner header, and during encapsulation, the DSCP mark is not automatically copied to the outer header.</p>
+<p>1. In order to set the DSCP value of the outer header, modify the <code>dscp</code> configuration option in <code>/etc/neutron/plugins/ml2/&lt;agent_name&gt;_agent.ini</code> where <code>&lt;agent_name&gt;</code> is the name of the agent being used (e.g., <code>openvswitch</code>):</p>
+<pre><code>[agent]
+dscp = 8
+</code></pre>
+<p>2. In order to copy the DSCP field of the inner header to the outer header, change the <code>dscp_inherit</code> configuration option to true in <code>/etc/neutron/plugins/ml2/&lt;agent_name&gt;_agent.ini</code> where <code>&lt;agent_name&gt;</code> is the name of the agent being used (e.g., <code>openvswitch</code>):</p>
+<pre><code>[agent]
+dscp_inherit = true
+</code></pre>
+<p>1. If the <code>dscp_inherit</code> option is set to true, the previous <code>dscp</code> option is overwritten.</p>
+<h2 id="trusted-projects-policyyaml-configuration">Trusted projects policy.yaml configuration</h2>
+<p>If projects are trusted to administrate their own QoS policies in your cloud, neutron’s file <code>policy.yaml</code> can be modified to allow this.</p>
+<p>Modify <code>/etc/neutron/policy.yaml</code> policy entries as follows:</p>
+<pre><code>&quot;get_policy&quot;: &quot;rule:regular_user&quot;,
+&quot;create_policy&quot;: &quot;rule:regular_user&quot;,
+&quot;update_policy&quot;: &quot;rule:regular_user&quot;,
+&quot;delete_policy&quot;: &quot;rule:regular_user&quot;,
+&quot;get_rule_type&quot;: &quot;rule:regular_user&quot;,
+</code></pre>
+<p>To enable bandwidth limit rule:</p>
+<pre><code>&quot;get_policy_bandwidth_limit_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;create_policy_bandwidth_limit_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;delete_policy_bandwidth_limit_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;update_policy_bandwidth_limit_rule&quot;: &quot;rule:regular_user&quot;,
+</code></pre>
+<p>To enable DSCP marking rule:</p>
+<pre><code>&quot;get_policy_dscp_marking_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;create_policy_dscp_marking_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;delete_policy_dscp_marking_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;update_policy_dscp_marking_rule&quot;: &quot;rule:regular_user&quot;,
+</code></pre>
+<p>To enable minimum bandwidth rule:</p>
+<pre><code>&quot;get_policy_minimum_bandwidth_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;create_policy_minimum_bandwidth_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;delete_policy_minimum_bandwidth_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;update_policy_minimum_bandwidth_rule&quot;: &quot;rule:regular_user&quot;,
+</code></pre>
+<p>To enable minimum packet rate rule:</p>
+<pre><code>&quot;get_policy_minimum_packet_rate_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;create_policy_minimum_packet_rate_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;delete_policy_minimum_packet_rate_rule&quot;: &quot;rule:regular_user&quot;,
+&quot;update_policy_minimum_packet_rate_rule&quot;: &quot;rule:regular_user&quot;,
+</code></pre>
+<h1 id="user-workflow">User workflow</h1>
+<p>QoS policies are only created by admins with the default <code>policy.yaml</code>. Therefore, you should have the cloud operator set them up on behalf of the cloud projects.</p>
+<p>If projects are trusted to create their own policies, check the trusted projects <code>policy.yaml</code> configuration section.</p>
+<p>First, create a QoS policy and its bandwidth limit rule:</p>
+<pre><code>$ openstack network qos policy create bw-limiter
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| description       |                                      |
+| id                | 5df855e9-a833-49a3-9c82-c0839a5f103f |
+| is_default        | False                                |
+| name              | bw-limiter                           |
+| project_id        | 4db7c1ed114a4a7fb0f077148155c500     |
+| rules             | []                                   |
+| shared            | False                                |
++-------------------+--------------------------------------+
+
+
+$ openstack network qos rule create --type bandwidth-limit --max-kbps 3000 \
+    --max-burst-kbits 2400 --egress bw-limiter
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| direction      | egress                               |
+| id             | 92ceb52f-170f-49d0-9528-976e2fee2d6f |
+| max_burst_kbps | 2400                                 |
+| max_kbps       | 3000                                 |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+</code></pre>
+<blockquote>
+<p>Note
+The QoS implementation requires a burst value to ensure proper behavior of bandwidth limit rules in the Open vSwitch and Linux bridge agents. Configuring the proper burst value is very important. If the burst value is set too low, bandwidth usage will be throttled even with a proper bandwidth limit setting. This issue is discussed in various documentation sources, for example in <a href="http://www.juniper.net/documentation/en_US/junos12.3/topics/concept/policer-mx-m120-m320-burstsize-determining.html">Juniper’s documentation</a>. For TCP traffic it is recommended to set burst value as 80% of desired bandwidth limit value. For example, if the bandwidth limit is set to 1000kbps then enough burst value will be 800kbit. If the configured burst value is too low, achieved bandwidth limit will be lower than expected. If the configured burst value is too high, too few packets could be limited and achieved bandwidth limit would be higher than expected. If you do not provide a value, it defaults to 80% of the bandwidth limit which works for typical TCP traffic.</p>
+</blockquote>
+<p>Second, associate the created policy with an existing neutron port. In order to do this, user extracts the port id to be associated to the already created policy. In the next example, we will assign the <code>bw-limiter</code> policy to the VM with IP address <code>192.0.2.1</code>.</p>
+<pre><code>$ openstack port list
++--------------------------------------+-----------------------------------+
+| ID                                   | Fixed IP Addresses                |
++--------------------------------------+-----------------------------------+
+| 0271d1d9-1b16-4410-bd74-82cdf6dcb5b3 | { ... , &quot;ip_address&quot;: &quot;192.0.2.1&quot;}|
+| 88101e57-76fa-4d12-b0e0-4fc7634b874a | { ... , &quot;ip_address&quot;: &quot;192.0.2.3&quot;}|
+| e04aab6a-5c6c-4bd9-a600-33333551a668 | { ... , &quot;ip_address&quot;: &quot;192.0.2.2&quot;}|
++--------------------------------------+-----------------------------------+
+
+$ openstack port set --qos-policy bw-limiter \
+    88101e57-76fa-4d12-b0e0-4fc7634b874a
+</code></pre>
+<pre><code>$ openstack port set --qos-policy bw-limiter \
+    88101e57-76fa-4d12-b0e0-4fc7634b874a
+</code></pre>
+<p>In order to detach a port from the QoS policy, simply update again the port configuration.</p>
+<pre><code>$ openstack port unset --qos-policy 88101e57-76fa-4d12-b0e0-4fc7634b874a
+</code></pre>
+<p>Ports can be created with a policy attached to them too.</p>
+<pre><code>$ openstack port create --qos-policy bw-limiter --network private port1
++-----------------------+--------------------------------------------------+
+| Field                 | Value                                            |
++-----------------------+--------------------------------------------------+
+| admin_state_up        | UP                                               |
+| allowed_address_pairs |                                                  |
+| binding_host_id       |                                                  |
+| binding_profile       |                                                  |
+| binding_vif_details   |                                                  |
+| binding_vif_type      | unbound                                          |
+| binding_vnic_type     | normal                                           |
+| created_at            | 2017-05-15T08:43:00Z                             |
+| data_plane_status     | None                                             |
+| description           |                                                  |
+| device_id             |                                                  |
+| device_owner          |                                                  |
+| dns_assignment        | None                                             |
+| dns_name              | None                                             |
+| extra_dhcp_opts       |                                                  |
+| fixed_ips             | ip_address='10.0.10.4', subnet_id='292f8c1e-...' |
+| id                    | f51562ee-da8d-42de-9578-f6f5cb248226             |
+| ip_address            | None                                             |
+| mac_address           | fa:16:3e:d9:f2:ba                                |
+| name                  | port1                                            |
+| network_id            | 55dc2f70-0f92-4002-b343-ca34277b0234             |
+| option_name           | None                                             |
+| option_value          | None                                             |
+| port_security_enabled | False                                            |
+| project_id            | 4db7c1ed114a4a7fb0f077148155c500                 |
+| qos_policy_id         | 5df855e9-a833-49a3-9c82-c0839a5f103f             |
+| revision_number       | 6                                                |
+| security_group_ids    | 0531cc1a-19d1-4cc7-ada5-49f8b08245be             |
+| status                | DOWN                                             |
+| subnet_id             | None                                             |
+| tags                  | []                                               |
+| trunk_details         | None                                             |
+| updated_at            | 2017-05-15T08:43:00Z                             |
++-----------------------+--------------------------------------------------+
+</code></pre>
+<p>You can attach networks to a QoS policy. The meaning of this is that any compute port connected to the network will use the network policy by default unless the port has a specific policy attached to it. Internal network owned ports like DHCP and internal router ports are excluded from network policy application.</p>
+<p>In order to attach a QoS policy to a network, update an existing network, or initially create the network attached to the policy.</p>
+<pre><code>$ openstack network set --qos-policy bw-limiter private
+</code></pre>
+<p>The created policy can be associated with an existing floating IP. In order to do this, user extracts the floating IP id to be associated to the already created policy. In the next example, we will assign the <code>bw-limiter</code> policy to the floating IP address <code>172.16.100.18</code>.</p>
+<pre><code>$ openstack floating ip list
++--------------------------------------+---------------------+------------------+------+-----+
+| ID                                   | Floating IP Address | Fixed IP Address | Port | ... |
++--------------------------------------+---------------------+------------------+------+-----+
+| 1163d127-6df3-44bb-b69c-c0e916303eb3 | 172.16.100.9        | None             | None | ... |
+| d0ed7491-3eb7-4c4f-a0f0-df04f10a067c | 172.16.100.18       | None             | None | ... |
+| f5a9ed48-2e9f-411c-8787-2b6ecd640090 | 172.16.100.2        | None             | None | ... |
++--------------------------------------+---------------------+------------------+------+-----+
+</code></pre>
+<pre><code>$ openstack floating ip set --qos-policy bw-limiter d0ed7491-3eb7-4c4f-a0f0-df04f10a067c
+</code></pre>
+<p>In order to detach a floating IP from the QoS policy, simply update the floating IP configuration.</p>
+<pre><code>$ openstack floating ip set --no-qos-policy d0ed7491-3eb7-4c4f-a0f0-df04f10a067c
+</code></pre>
+<p>Or use the <code>unset</code> action.</p>
+<pre><code>$ openstack floating ip unset --qos-policy d0ed7491-3eb7-4c4f-a0f0-df04f10a067c
+</code></pre>
+<p>Floating IPs can be created with a policy attached to them too.</p>
+<pre><code>$ openstack floating ip create --qos-policy bw-limiter public
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| created_at          | 2017-12-06T02:12:09Z                 |
+| description         |                                      |
+| fixed_ip_address    | None                                 |
+| floating_ip_address | 172.16.100.12                        |
+| floating_network_id | 4065eb05-cccb-4048-988c-e8c5480a746f |
+| id                  | 6a0efeef-462b-4312-b4ad-627cde8a20e6 |
+| name                | 172.16.100.12                        |
+| port_id             | None                                 |
+| project_id          | 916e39e8be52433ba040da3a3a6d0847     |
+| qos_policy_id       | 5df855e9-a833-49a3-9c82-c0839a5f103f |
+| revision_number     | 1                                    |
+| router_id           | None                                 |
+| status              | DOWN                                 |
+| updated_at          | 2017-12-06T02:12:09Z                 |
++---------------------+--------------------------------------+
+</code></pre>
+<p>The QoS bandwidth limit rules attached to a floating IP will become active when you associate the latter with a port. For example, to associate the previously created floating IP <code>172.16.100.12</code> to the instance port with uuid <code>a7f25e73-4288-4a16-93b9-b71e6fd00862</code> and fixed IP <code>192.168.222.5</code>:</p>
+<pre><code>$ openstack floating ip set --port a7f25e73-4288-4a16-93b9-b71e6fd00862 \
+0eeb1f8a-de96-4cd9-a0f6-3f535c409558
+</code></pre>
+<blockquote>
+<p>Note
+The QoS policy attached to a floating IP is not applied to a port, it is applied to an associated floating IP only. Thus the ID of QoS policy attached to a floating IP will not be visible in a port’s <code>qos_policy_id</code> field after asscoating a floating IP to the port. It is only visible in the floating IP attributes.</p>
+<p>Note
+For now, the L3 agent floating IP QoS extension only supports <code>bandwidth_limit</code> rules. Other rule types (like DSCP marking) will be silently ignored for floating IPs. A QoS policy that does not contain any <code>bandwidth_limit</code> rules will have no effect when attached to a floating IP.</p>
+</blockquote>
+<p>If floating IP is bound to a port, and both have binding QoS bandwidth rules, the L3 agent floating IP QoS extension ignores the behavior of the port QoS, and installs the rules from the QoS policy associated to the floating IP on the appropriate device in the router namespace.</p>
+<p>Each project can have at most one default QoS policy, although it is not mandatory. If a default QoS policy is defined, all new networks created within this project will have this policy assigned, as long as no other QoS policy is explicitly attached during the creation process. If the default QoS policy is unset, no change to existing networks will be made.</p>
+<p>In order to set a QoS policy as default, the parameter <code>--default</code> must be used. To unset this QoS policy as default, the parameter <code>--no-default</code> must be used.</p>
+<pre><code>$ openstack network qos policy create --default bw-limiter
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| description       |                                      |
+| id                | 5df855e9-a833-49a3-9c82-c0839a5f103f |
+| is_default        | True                                 |
+| name              | bw-limiter                           |
+| project_id        | 4db7c1ed114a4a7fb0f077148155c500     |
+| rules             | []                                   |
+| shared            | False                                |
++-------------------+--------------------------------------+
+
+$ openstack network qos policy set --no-default bw-limiter
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| description       |                                      |
+| id                | 5df855e9-a833-49a3-9c82-c0839a5f103f |
+| is_default        | False                                |
+| name              | bw-limiter                           |
+| project_id        | 4db7c1ed114a4a7fb0f077148155c500     |
+| rules             | []                                   |
+| shared            | False                                |
++-------------------+--------------------------------------+
+</code></pre>
+<p>Create qos policy with packet rate limit rules:</p>
+<pre><code>$ openstack network qos policy create pps-limiter
++-------------+--------------------------------------+
+| Field       | Value                                |
++-------------+--------------------------------------+
+| description |                                      |
+| id          | 97f0ac37-7dd6-4579-8359-3bef0751a505 |
+| is_default  | False                                |
+| name        | pps-limiter                          |
+| project_id  | 1d70739f831b421fb38a27adb368fc17     |
+| rules       | []                                   |
+| shared      | False                                |
+| tags        | []                                   |
++-------------+--------------------------------------+
+
+$ openstack network qos rule create --max-kpps 1000 --max-burst-kpps 100 --ingress --type packet-rate-limit pps-limiter
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| direction      | ingress                              |
+| id             | 4a1cb166-9661-48d7-bddb-00b7d75846cd |
+| max_burst_kpps | 100                                  |
+| max_kpps       | 1000                                 |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+
+$ openstack network qos rule create --max-kpps 1000 --max-burst-kpps 100 --egress --type packet-rate-limit pps-limiter
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| direction      | egress                               |
+| id             | 6abd67f7-0bde-4ad3-ac54-b0a6103b0449 |
+| max_burst_kpps | 100                                  |
+| max_kpps       | 1000                                 |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+</code></pre>
+<blockquote>
+<p>Note
+The unit for the rate and burst is kilo (1000) packets per second.</p>
+</blockquote>
+<p>Now apply the packet rate limit QoS policy to a Port:</p>
+<pre><code>$ openstack port set --qos-policy pps-limiter 251948bd-08e4-4569-a47f-ecbc1fd4af4d
+</code></pre>
+<blockquote>
+<p>Note
+Packet rate limit is only supported by the ml2 ovs driver. And it leverages the meter actions of the ovs kernel datapath or the userspace ovs dpdk datapath. The meter action is only supported when the datapath is in user mode or ovs kernel datapath with kernerl version &gt;= 4.15.</p>
+</blockquote>
+<h2 id="administrator-enforcement">Administrator enforcement</h2>
+<p>Administrators are able to enforce policies on project ports or networks. As long as the policy is not shared, the project is not be able to detach any policy attached to a network or port.</p>
+<p>If the policy is shared, the project is able to attach or detach such policy from its own ports and networks.</p>
+<h2 id="rule-modification">Rule modification</h2>
+<p>You can modify rules at runtime. Rule modifications will be propagated to any attached port.</p>
+<pre><code>$ openstack network qos rule set --max-kbps 2000 --max-burst-kbits 1600 \
+    --ingress bw-limiter 92ceb52f-170f-49d0-9528-976e2fee2d6f
+
+$ openstack network qos rule show \
+    bw-limiter 92ceb52f-170f-49d0-9528-976e2fee2d6f
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| direction      | ingress                              |
+| id             | 92ceb52f-170f-49d0-9528-976e2fee2d6f |
+| max_burst_kbps | 1600                                 |
+| max_kbps       | 2000                                 |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+</code></pre>
+<p>Just like with bandwidth limiting, create a policy for DSCP marking rule:</p>
+<pre><code>$ openstack network qos policy create dscp-marking
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| description       |                                      |
+| id                | d1f90c76-fbe8-4d6f-bb87-a9aea997ed1e |
+| is_default        | False                                |
+| name              | dscp-marking                         |
+| project_id        | 4db7c1ed114a4a7fb0f077148155c500     |
+| rules             | []                                   |
+| shared            | False                                |
++-------------------+--------------------------------------+
+</code></pre>
+<p>You can create, update, list, delete, and show DSCP markings with the neutron client:</p>
+<pre><code>$ openstack network qos rule create --type dscp-marking --dscp-mark 26 \
+    dscp-marking
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| dscp_mark      | 26                                   |
+| id             | 115e4f70-8034-4176-8fe9-2c47f8878a7d |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+</code></pre>
+<pre><code>$ openstack network qos rule set --dscp-mark 22 \
+    dscp-marking 115e4f70-8034-4176-8fe9-2c47f8878a7d
+
+$ openstack network qos rule list dscp-marking
++--------------------------------------+----------------------------------+
+| ID                                   | DSCP Mark                        |
++--------------------------------------+----------------------------------+
+| 115e4f70-8034-4176-8fe9-2c47f8878a7d | 22                               |
++--------------------------------------+----------------------------------+
+
+$ openstack network qos rule show \
+    dscp-marking 115e4f70-8034-4176-8fe9-2c47f8878a7d
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| dscp_mark      | 22                                   |
+| id             | 115e4f70-8034-4176-8fe9-2c47f8878a7d |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+
+$ openstack network qos rule delete \
+    dscp-marking 115e4f70-8034-4176-8fe9-2c47f8878a7d
+</code></pre>
+<p>You can also include minimum bandwidth rules in your policy:</p>
+<pre><code>$ openstack network qos policy create bandwidth-control
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| description       |                                      |
+| id                | 8491547e-add1-4c6c-a50e-42121237256c |
+| is_default        | False                                |
+| name              | bandwidth-control                    |
+| project_id        | 7cc5a84e415d48e69d2b06aa67b317d8     |
+| revision_number   | 1                                    |
+| rules             | []                                   |
+| shared            | False                                |
++-------------------+--------------------------------------+
+
+$ openstack network qos rule create \
+  --type minimum-bandwidth --min-kbps 1000 --egress bandwidth-control
++------------+--------------------------------------+
+| Field      | Value                                |
++------------+--------------------------------------+
+| direction  | egress                               |
+| id         | da858b32-44bc-43c9-b92b-cf6e2fa836ab |
+| min_kbps   | 1000                                 |
+| name       | None                                 |
+| project_id |                                      |
++------------+--------------------------------------+
+</code></pre>
+<p>A policy with a minimum bandwidth ensures best efforts are made to provide no less than the specified bandwidth to each port on which the rule is applied. However, as this feature is not yet integrated with the Compute scheduler, minimum bandwidth cannot be guaranteed.</p>
+<p>It is also possible to combine several rules in one policy, as long as the type or direction of each rule is different. For example, You can specify two <code>bandwidth-limit</code> rules, one with <code>egress</code> and one with <code>ingress</code> direction.</p>
+<pre><code>$ openstack network qos rule create --type bandwidth-limit \
+    --max-kbps 50000 --max-burst-kbits 50000 --egress bandwidth-control
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| direction      | egress                               |
+| id             | 0db48906-a762-4d32-8694-3f65214c34a6 |
+| max_burst_kbps | 50000                                |
+| max_kbps       | 50000                                |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+
+$ openstack network qos rule create --type bandwidth-limit \
+    --max-kbps 10000 --max-burst-kbits 10000 --ingress bandwidth-control
++----------------+--------------------------------------+
+| Field          | Value                                |
++----------------+--------------------------------------+
+| direction      | ingress                              |
+| id             | faabef24-e23a-4fdf-8e92-f8cb66998834 |
+| max_burst_kbps | 10000                                |
+| max_kbps       | 10000                                |
+| name           | None                                 |
+| project_id     |                                      |
++----------------+--------------------------------------+
+
+$ openstack network qos rule create --type minimum-bandwidth \
+    --min-kbps 1000 --egress bandwidth-control
++------------+--------------------------------------+
+| Field      | Value                                |
++------------+--------------------------------------+
+| direction  | egress                               |
+| id         | da858b32-44bc-43c9-b92b-cf6e2fa836ab |
+| min_kbps   | 1000                                 |
+| name       | None                                 |
+| project_id |                                      |
++------------+--------------------------------------+
+
+$ openstack network qos policy show bandwidth-control
++-------------------+-------------------------------------------------------------------+
+| Field             | Value                                                             |
++-------------------+-------------------------------------------------------------------+
+| description       |                                                                   |
+| id                | 8491547e-add1-4c6c-a50e-42121237256c                              |
+| is_default        | False                                                             |
+| name              | bandwidth-control                                                 |
+| project_id        | 7cc5a84e415d48e69d2b06aa67b317d8                                  |
+| revision_number   | 4                                                                 |
+| rules             | [{u'max_kbps': 50000, u'direction': u'egress',                    |
+|                   |   u'type': u'bandwidth_limit',                                    |
+|                   |   u'id': u'0db48906-a762-4d32-8694-3f65214c34a6',                 |
+|                   |   u'max_burst_kbps': 50000,                                       |
+|                   |   u'qos_policy_id': u'8491547e-add1-4c6c-a50e-42121237256c'},     |
+|                   | [{u'max_kbps': 10000, u'direction': u'ingress',                   |
+|                   |   u'type': u'bandwidth_limit',                                    |
+|                   |   u'id': u'faabef24-e23a-4fdf-8e92-f8cb66998834',                 |
+|                   |   u'max_burst_kbps': 10000,                                       |
+|                   |   u'qos_policy_id': u'8491547e-add1-4c6c-a50e-42121237256c'},     |
+|                   |  {u'direction':                                                   |
+|                   |   u'egress', u'min_kbps': 1000, u'type': u'minimum_bandwidth',    |
+|                   |   u'id': u'da858b32-44bc-43c9-b92b-cf6e2fa836ab',                 |
+|                   |   u'qos_policy_id': u'8491547e-add1-4c6c-a50e-42121237256c'}]     |
+| shared            | False                                                             |
++-------------------+-------------------------------------------------------------------+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

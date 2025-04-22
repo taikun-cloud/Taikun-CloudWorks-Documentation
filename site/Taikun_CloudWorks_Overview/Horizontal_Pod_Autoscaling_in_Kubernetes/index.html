@@ -1,0 +1,6084 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.taikun.cloud/Taikun_CloudWorks_Overview/Horizontal_Pod_Autoscaling_in_Kubernetes/">
+      
+      
+        <link rel="prev" href="../Exposing_an_Application_Through_the_Bastion_Load_Balancer/">
+      
+      
+        <link rel="next" href="../Importing_Kubernetes_Cluster/">
+      
+      
+      <link rel="icon" href="https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/Icon1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Horizontal Pod Autoscaling in Kubernetes - Taikun Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#horizontal-pod-autoscaling-in-kubernetes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Taikun Documentation" class="md-header__button md-logo" aria-label="Taikun Documentation" data-md-component="logo">
+      
+  <img src="https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/taikun_logo.webp" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Taikun Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Horizontal Pod Autoscaling in Kubernetes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Taikun Documentation" class="md-nav__button md-logo" aria-label="Taikun Documentation" data-md-component="logo">
+      
+  <img src="https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/taikun_logo.webp" alt="logo">
+
+    </a>
+    Taikun Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Account Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Account Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Add_and_Delete_Users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add/Delete Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Billing_of_your_Taikun_account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing of your Taikun account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Delete_Account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Delete Account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Email_notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Email Notifications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Keycloak_SSO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keycloak SSO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/My_Profile_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    My Profile Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Organizations_in_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Organizations in Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Password_Reset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Password Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/Single_Logout_Mechanism/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single Logout (SLO) Mechanism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account_Management/User_Types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Advanced_Configuration/Exposing_Applications_with_an_Internet-Facing_Load_Balancer_for_Zadara_cloud_in_Kubernetes_via_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exposing Applications with an Internet-Facing Load Balancer for Zadara Cloud in Kubernetes via Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Advanced_Configuration/LoadBalancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Advanced_Configuration/Slack_Configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slack Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Advanced_Configuration/Taikun_API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Advanced_Configuration/Taikun_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Advanced_Configuration/Terraform_Provider_for_Taikun_Workshop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terraform Provider for Taikun Workshop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting_Started/Accessing_Cluster_with_Kubeconfig/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessing Cluster with Kubeconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting_Started/Connect_your_Cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect your Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting_Started/Creating_Kubernetes_cluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating Kubernetes cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting_Started/From_Login_to_Production_Cluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Login to Production Cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting_Started/Project_Creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Creation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting_Started/Taikun_Infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Infra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managing your Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Managing your Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/AI_assistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI Assistant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Create_a_Project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Create_a_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Enable_autoscaler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enable Autoscaler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Flavor_Information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flavor Information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Installing_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Kubernetes_Upgrades_with_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Upgrades with Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Overview_of_Taikun_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview of Taikun Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Project_Details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/Supported_Application_Runtime_Environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported Application Runtime Environments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/VMs_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VMs Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Managing_your_Projects/vCluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vCluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring your Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring your Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Audit_Log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audit Log
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Available_Monitoring_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Available Monitoring Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Chargeback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chargeback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Configure_Alerting_Profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure Alerting Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Enable_Monitoring_in_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enable Monitoring in Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Events%2C_Logs%2C_and_Metrics_of_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Events, Logs, and Metrics of Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Kubernetes_Dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes dashboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Live_Servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Project_Quotas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Quotas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Showback_rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Showback rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Taikun_Notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Notifications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Taikun_Requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Ticketing_in_Taikun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ticketing in Taikun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monitoring_your_Projects/Usage_Reports/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage Reports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Navigating in Taikun
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Navigating in Taikun
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Billing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Configurations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configurations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Partner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Navigating_in_Taikun/Taikun_User_Interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun User Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Profile Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Profile Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Profile_Management/Access_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Profile_Management/Alerting_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alerting Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Profile_Management/Creating_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Profile_Management/Kubernetes_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Profile_Management/Policy_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Policy Profiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Profile_Management/Standalone_Profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Standalone Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Supported Cloud Providers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Supported Cloud Providers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/All_Cloud_Providers_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    All Cloud Providers Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/Amazon_Web_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amazon Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/Google_Cloud_Platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Cloud Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/Microsoft_Azure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Azure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/OpenStack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/Proxmox/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proxmox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/Red_Hat_OpenShift/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Red Hat OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/VMware_Tanzu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VMware Tanzu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/VMware_vSphere/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VMware vSphere
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/Zadara/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zadara
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Supported_Cloud_Providers/Zededa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zededa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun CloudWorks Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ArtifactHub_Repositories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ArtifactHub Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Container_images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Exposing_an_Application_Through_the_Bastion_Load_Balancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exposing an Application Through the Bastion Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Horizontal Pod Autoscaling in Kubernetes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Horizontal Pod Autoscaling in Kubernetes
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-a-horizontalpodautoscaler-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does a HorizontalPodAutoscaler work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Object
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stability-of-workload-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stability of workload scale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoscalling-during-rolling-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Autoscalling during rolling update
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-resource-matrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support for resource matrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support for resource matrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-resources-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container resources metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-on-custom-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling on custom metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-on-multiple-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling on multiple metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-metrics-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support for metrics APIs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-scaling-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurable scaling behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurable scaling behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scaling-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilization-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stabilization window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-change-downscale-stabilization-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: change downscale stabilization window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-limit-scale-down-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: limit scale-down rate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-disable-scale-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: disable scale down
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-horizontalpodautoscaler-in-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support for HorizontalPodAutoscaler in kubectl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-maintenance-mode-deactivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit maintenance-mode deactivation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implicit maintenance-mode deactivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-deployments-and-statefulsets-to-horizontal-autoscaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrating Deployments and StatefulSets to horizontal autoscaling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Importing_Kubernetes_Cluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importing Kubernetes Cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ingress_in_Kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ingress in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes_DNS_Pod_Service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes DNS Pod Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes_Persistent_Volumes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Persistent Volumes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes_Storage_Volumes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Storage Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes_Taints_and_Tolerations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Taints and Tolerations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes_Volume_Snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Volume Snapshots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Network_Plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Plugins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Network_Policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Policies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus_Funcionality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nexus Functionality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prometheus_for_Taikun_CloudWorks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus for Taikun CloudWorks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Serverless_Kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serverless Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Service%2C_Load_Balancing%2C_and_Networking_in_Kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Services, Load Balancing, and Networking in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Taikun_CloudWorks_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Taikun_CloudWorks_Operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun CloudWorks Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Taikun_Compatibility_Matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun Compatibility Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tasks_and_Pipelines_in_Taikun_CloudWorks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tasks and Pipelines in Taikun CloudWorks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tekton_Operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tekton Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun Dictionary
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun Dictionary
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Dictionary/Our_Lingo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Our Lingo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun Open Cloud Platform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun Open Cloud Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP_-_Skydive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP – Skydive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Barbican
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Barbican
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Barbican/Key_Manager_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Key Manager Overview (barbican)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_3" id="__nav_12_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Ceph
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_3">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Ceph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ceph/Block_Devices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Disaster_Recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Disaster Recovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Encryption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Encryption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Integration_with_Keystone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Integration with Keystone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Performance_Testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ceph Performance Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_4" id="__nav_12_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Cinder
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_4">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Cinder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Cinder/Block_Storage_Overview-cinder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Storage Overview (cinder)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Cinder/Manage_Volumes_via_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Volumes via CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Cinder/Volume_Backups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volume Backups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Cinder/Volume_encryption_supported_by_the_key_maager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volume encryption supported by the key manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_5" id="__nav_12_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Designate
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_5">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Designate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Designate/Introduction_to_Designate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Designate (DNS-as-a-Service)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_6" id="__nav_12_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Glance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_6">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Glance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Glance/Image_Service_Overview_glance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Service Overview (glance)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Glance/Manage_images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_7" id="__nav_12_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Heat
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_7">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Heat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Heat/Orchestration_Service_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Orchestration Service Overview (heat)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_8" id="__nav_12_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Horizon
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_8">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Horizon
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Horizon/Launch_Virtual_Machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Launch Virtual Machines (Instances)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Horizon/Manage_Volumes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Volumes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Horizon/Taikun_OCP_Dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Dashboard (horizon)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Horizon/View_and_Manage_Quotas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    View and Manage Quotas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_9" id="__nav_12_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Ironic
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_9">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Ironic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/Ansible_Deploy_Interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ansible Deploy Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/Bare_Metal_service_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bare Metal service overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/Drivers%2C_Hardware_Types_and_Hardware_Interfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drivers, Hardware Types and Hardware Interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/Enrollment_of_Hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enrollment of Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/Hardware_Inspection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Inspection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/High_Availability_and_Scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High Availability and Scalability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/Ironic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ironic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/Ironic_Console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ironic Console
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Ironic/iDRAC_Driver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iDRAC Driver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_10" id="__nav_12_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Keystone
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_10">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Keystone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Keystone/Configuring_Keystone_for_Federation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring Keystone for Federation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Keystone/Create_a_Domain%2C_Projects%2C_Users%2C_and_Roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Domain, Projects, Users, and Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Keystone/Keystone_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keystone Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Keystone/Keystone_Configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keystone Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Keystone/Manage_Projects%2C_Users%2C_and_Roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Projects, Users, and Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Keystone/Middleware_Audit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Middleware Audit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Keystone/Role_Types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Role Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_11" id="__nav_12_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Manila
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_11">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Manila
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Manila/Administration_Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Manila/Shared_Filesystems_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared Filesystems Overview (manila)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_12" id="__nav_12_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Mojo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_12">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Mojo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Mojo/Add_a_New_OS_Bundle_to_Taikun_OCP_Baremetal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a New OS Bundle to Taikun OCP Baremetal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Mojo/Create_and_Manage_Node_Pools_in_Taikun_OCP_Baremetal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create and Manage Node Pools in Taikun OCP Baremetal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Mojo/Installing_Taikun_OCP_Baremetal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Taikun OCP Baremetal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Mojo/Taikun_OCP_Baremetal_Keycloak_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Baremetal Keycloak integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Mojo/Taikun_OCP_Baremetal_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Baremetal Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_13" id="__nav_12_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Monitoring
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_13">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Monitoring/Prometheus_Alertmanager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus Alertmanager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Monitoring/Prometheus_Service_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus Service Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_14" id="__nav_12_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Neutron
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_14">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Neutron
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Neutron/Floating_IP_Port_Forwarding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Floating IP Port Forwarding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Neutron/Network_CLI_Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network CLI Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Neutron/Quality_of_Service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quality of Service (QoS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Neutron/Role-Based_Access_Control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Role-Based Access Control (RBAC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Neutron/Subnet_Pools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subnet Pools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Neutron/Taikun_OCP_Networking_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Networking Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_15" id="__nav_12_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Nova
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_15">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Nova
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Attaching_virtual_GPU_devices_to_guests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attaching virtual GPU devices to guests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Availability_Zones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Availability Zones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Compute-nova/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute (nova)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Emulated_Trusted_Platform_Module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emulated Trusted Platform Module (vTPM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Flavors_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flavors Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Host_Aggregates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Host Aggregates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Hypervisors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hypervisors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Manage_Project_Security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Project Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Manage_Quotas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage Quotas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Nova/Show_Usage_Statistics_for_Hosts_and_Instances/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Show Usage Statistics for Hosts and Instances
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_16" id="__nav_12_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Octavia
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_16">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Octavia
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Octavia/Devstack_with_Octavia_Load_Balancing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Devstack with Octavia Load Balancing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Octavia/Load_Balancing_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Balancing Overview (octavia)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_17" id="__nav_12_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Taikun OCP Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_17">
+            <span class="md-nav__icon md-icon"></span>
+            Taikun OCP Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Automatic_Migration_of_VMs_Upon_Failure_of_Host/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatic Migration of VMs Upon Failure of Host
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/CLI_Client/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/CLI_Command_List/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Command List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Configure_Postfix_CLient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure Postfix Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Get_Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Getting_Started_with_Ceilometer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started with Ceilometer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Install_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Maintanance_Mode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Maintanance Mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Overcommitting_CPU_and_RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overcommitting CPU and RAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Routers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/SDK_Reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Security_Group_Rules_in_CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Group Rules in CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Supported_OS_Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported OS Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Taikun_OCP_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Taikun_OCP_Limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taikun OCP Limits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Taikun_Open_Cloud_Platform/Taikun_OCP-Overview/Using_Mojo_with_Taikun_OCP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Mojo with Taikun OCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-a-horizontalpodautoscaler-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does a HorizontalPodAutoscaler work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Object
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stability-of-workload-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stability of workload scale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoscalling-during-rolling-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Autoscalling during rolling update
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-resource-matrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support for resource matrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support for resource matrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-resources-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container resources metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-on-custom-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling on custom metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-on-multiple-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling on multiple metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-metrics-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support for metrics APIs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-scaling-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurable scaling behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurable scaling behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scaling-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilization-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stabilization window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-change-downscale-stabilization-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: change downscale stabilization window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-limit-scale-down-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: limit scale-down rate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-disable-scale-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: disable scale down
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-horizontalpodautoscaler-in-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support for HorizontalPodAutoscaler in kubectl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-maintenance-mode-deactivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit maintenance-mode deactivation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implicit maintenance-mode deactivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-deployments-and-statefulsets-to-horizontal-autoscaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrating Deployments and StatefulSets to horizontal autoscaling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="horizontal-pod-autoscaling-in-kubernetes"><strong>Horizontal Pod Autoscaling in Kubernetes</strong></h1>
+<p>In Kubernetes, a HorizontalPodAutoscaler automatically updates a workload resource (such as a Deployment or StatefulSet), with the aim of automatically scaling the workload to match demand.</p>
+<p>Horizontal scaling means deploying more Pods to respond to increased load. This is different from vertical scaling, which for Kubernetes would mean assigning more resources (for example: memory or CPU) to the Pods that are already running for the workload.</p>
+<p>If the load decreases and the number of Pods exceeds the configured minimum, the HorizontalPodAutoscaler instructs the workload resource (the Deployment, StatefulSet, or other similar resource) to scale back down.</p>
+<p>Horizontal pod autoscaling does not apply to objects that can’t be scaled (for example: a DaemonSet.)</p>
+<p>The HorizontalPodAutoscaler is implemented as a Kubernetes API resource and a controller. The resource determines the controller’s behavior. The horizontal pod autoscaling controller, running within the Kubernetes control plane, periodically adjusts the desired scale of its target (for example, a Deployment) to match observed metrics such as average CPU utilization, average memory utilization, or any other custom metric you specify.</p>
+<p>There is a walkthrough example of using horizontal pod autoscaling.</p>
+<h2 id="how-does-a-horizontalpodautoscaler-work"><strong>How does a HorizontalPodAutoscaler work</strong></h2>
+<figure>
+<p><img alt="" src="https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/Taikun%20CloudWorks%20Overview/Horizontal_Pod_Autoscaling_in_Kubernetes.webp" /></p>
+<figcaption>
+<p>HorizontalPodAutoscaler</p>
+</figcaption>
+</figure>
+<p>HorizontalPodAutoscaler controls the scale of a Deployment and its ReplicaSet</p>
+<p>Kubernetes implements horizontal pod autoscaling as a control loop that runs intermittently (it is not a continuous process). The interval is set by the --horizontal-pod-autoscaler-sync-period parameter to the kube-controller-manager (and the default interval is 15 seconds).</p>
+<p>Once during each period, the controller manager queries the resource utilization against the metrics specified in each HorizontalPodAutoscaler definition. The controller manager finds the target resource defined by the scaleTargetRef, then selects the pods based on the target resource’s .spec.selector labels, and obtains the metrics from the resource metrics API (for per-pod resource metrics) or the custom metrics API (for all other metrics).</p>
+<p>For per-pod resource metrics (like CPU), the controller fetches the metrics from the resource metrics API for each Pod targeted by the HorizontalPodAutoscaler. Then, if a target utilization value is set, the controller calculates the utilization value as a percentage of the equivalent resource request on the containers in each Pod. The raw metric values are used directly if a target raw value is set. The controller then takes the mean of the utilization or the raw value (depending on the type of target specified) across all targeted Pods and produces a ratio used to scale the number of desired replicas. Please note that if some of the Pod’s containers do not have the relevant resource request set, CPU utilization for the Pod will not be defined and the autoscaler will not take any action for that metric. See the algorithm details section below for more information about how the autoscaling algorithm works.
+For per-pod custom metrics, the controller functions similarly to per-pod resource metrics, except that it works with raw values, not utilization values.
+For object metrics and external metrics, a single metric is fetched, which describes the object in question. This metric is compared to the target value, to produce a ratio as above. In the autoscaling/v2 API version, this value can be divided by the number of Pods before the comparison.
+The common use for HorizontalPodAutoscaler is to configure it to fetch metrics from aggregated APIs (metrics.k8s.io, custom.metrics.k8s.io, or external.metrics.k8s.io). The metrics.k8s.io API is usually provided by an add-on named Metrics Server, which needs to be launched separately. For more information about resource metrics, see Metrics Server.</p>
+<p>Support for metrics APIs explains the stability guarantees and support status for these different APIs.</p>
+<p>The HorizontalPodAutoscaler controller accesses corresponding workload resources that support scaling (such as Deployments and StatefulSet). These resources each have a subresource named scale, an interface that allows you to dynamically set the number of replicas and examine each of their current states. For general information about subresources in the Kubernetes API, see Kubernetes API Concepts.</p>
+<p>Algorithm details
+From the most basic perspective, the HorizontalPodAutoscaler controller operates on the ratio between desired metric value and current metric value:</p>
+<p>desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]
+For example, if the current metric value is 200m, and the desired value is 100m, the number of replicas will be doubled, since 200.0 / 100.0 == 2.0 If the current value is instead 50m, you’ll halve the number of replicas, since 50.0 / 100.0 == 0.5. The control plane skips any scaling action if the ratio is sufficiently close to 1.0 (within a globally-configurable tolerance, 0.1 by default).</p>
+<p>When a targetAverageValue or targetAverageUtilization is specified, the currentMetricValue is computed by taking the average of the given metric across all Pods in the HorizontalPodAutoscaler’s scale target.</p>
+<p>Before checking the tolerance and deciding on the final values, the control plane also considers whether any metrics are missing, and how many Pods are Ready. All Pods with a deletion timestamp set (objects with a deletion timestamp are in the process of being shut down / removed) are ignored, and all failed Pods are discarded.</p>
+<p>If a particular Pod is missing metrics, it is set aside for later; Pods with missing metrics will be used to adjust the final scaling amount.</p>
+<p>When scaling on CPU, if any pod has yet to become ready (it’s still initializing, or possibly is unhealthy) or the most recent metric point for the pod was before it became ready, that pod is set aside as well.</p>
+<p>Due to technical constraints, the HorizontalPodAutoscaler controller cannot exactly determine the first time a pod becomes ready when determining whether to set aside certain CPU metrics. Instead, it considers a Pod “not yet ready” if it’s unready and transitioned to ready within a short, configurable window of time since it started. This value is configured with the --horizontal-pod-autoscaler-initial-readiness-delay flag, and its default is 30 seconds. Once a pod has become ready, it considers any transition to ready to be the first if it occurred within a longer, configurable time since it started. This value is configured with the --horizontal-pod-autoscaler-cpu-initialization-period flag, and its default is 5 minutes.</p>
+<p>The currentMetricValue / desiredMetricValue base scale ratio is then calculated using the remaining pods not set aside or discarded from above.</p>
+<p>If there were any missing metrics, the control plane recomputes the average more conservatively, assuming those pods were consuming 100% of the desired value in case of a scale down, and 0% in case of a scale up. This dampens the magnitude of any potential scale.</p>
+<p>Furthermore, if any not-yet-ready pods were present, and the workload would have scaled up without factoring in missing metrics or not-yet-ready pods, the controller conservatively assumes that the not-yet-ready pods are consuming 0% of the desired metric, further dampening the magnitude of a scale up.</p>
+<p>After factoring in the not-yet-ready pods and missing metrics, the controller recalculates the usage ratio. If the new ratio reverses the scale direction, or is within the tolerance, the controller doesn’t take any scaling action. In other cases, the new ratio is used to decide any change to the number of Pods.</p>
+<p>Note that the original value for the average utilization is reported back via the HorizontalPodAutoscaler status, without factoring in the not-yet-ready pods or missing metrics, even when the new usage ratio is used.</p>
+<p>If multiple metrics are specified in a HorizontalPodAutoscaler, this calculation is done for each metric, and then the largest of the desired replica counts is chosen. If any of these metrics cannot be converted into a desired replica count (e.g. due to an error fetching the metrics from the metrics APIs) and a scale down is suggested by the metrics which can be fetched, scaling is skipped. This means that the HPA is still capable of scaling up if one or more metrics give a desiredReplicas greater than the current value.</p>
+<p>Finally, right before HPA scales the target, the scale recommendation is recorded. The controller considers all recommendations within a configurable window choosing the highest recommendation from within that window. This value can be configured using the --horizontal-pod-autoscaler-downscale-stabilization flag, which defaults to 5 minutes. This means that scaledowns will occur gradually, smoothing out the impact of rapidly fluctuating metric values.</p>
+<hr />
+<h2 id="api-object"><strong>API Object</strong></h2>
+<p>The Horizontal Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The current stable version can be found in the autoscaling/v2 API version which includes support for scaling on memory and custom metrics. The new fields introduced in autoscaling/v2 are preserved as annotations when working with autoscaling/v1.</p>
+<p>When you create a HorizontalPodAutoscaler API object, make sure the name specified is a valid DNS subdomain name. More details about the API object can be found at HorizontalPodAutoscaler Object.</p>
+<hr />
+<h2 id="stability-of-workload-scale"><strong>Stability of workload scale</strong></h2>
+<p>When managing the scale of a group of replicas using the HorizontalPodAutoscaler, it is possible that the number of replicas keeps fluctuating frequently due to the dynamic nature of the metrics evaluated. This is sometimes referred to as thrashing, or flapping. It’s similar to the concept of hysteresis in cybernetics.</p>
+<hr />
+<h2 id="autoscalling-during-rolling-update"><strong>Autoscalling during rolling update</strong></h2>
+<p>Kubernetes lets you perform a rolling update on a Deployment. In that case, the Deployment manages the underlying ReplicaSets for you. When you configure autoscaling for a Deployment, you bind a HorizontalPodAutoscaler to a single Deployment. The HorizontalPodAutoscaler manages the replicas field of the Deployment. The deployment controller is responsible for setting the replicas of the underlying ReplicaSets so that they add up to a suitable number during the rollout and also afterwards.</p>
+<p>If you perform a rolling update of a StatefulSet that has an autoscaled number of replicas, the StatefulSet directly manages its set of Pods (there is no intermediate resource similar to ReplicaSet).</p>
+<hr />
+<h2 id="support-for-resource-matrics"><strong>Support for resource matrics</strong></h2>
+<p>Any HPA target can be scaled based on the resource usage of the pods in the scaling target. When defining the pod specification the resource requests like cpu and memory should be specified. This is used to determine the resource utilization and used by the HPA controller to scale the target up or down. To use resource utilization based scaling specify a metric source like this:</p>
+<pre><code class="language-yaml">type: Resource
+resource:
+  name: cpu
+  target:
+    type: Utilization
+    averageUtilization: 60
+</code></pre>
+<p>With this metric, the HPA controller will keep the average utilization of the pods in the scaling target at 60%. Utilization is the ratio between the current usage of a resource and the requested resources of the pod. See Algorithm for more details about how utilization is calculated and averaged.</p>
+<p>??? Note
+    Since the resource usages of all the containers are summed up the total pod utilization may not accurately represent the individual container resource usage. This could lead to situations where a single container might be running with high usage and the HPA will not scale out because the overall pod usage is still within acceptable limits.</p>
+<h3 id="container-resources-metrics">Container resources metrics</h3>
+<p>FEATURE STATE: Kubernetes v1.27 [beta]</p>
+<p>The HorizontalPodAutoscaler API also supports a container metric source where the HPA can track the resource usage of individual containers across a set of Pods, in order to scale the target resource. This lets you configure scaling thresholds for the containers that matter most in a particular Pod. For example, suppose you have a web application and a logging sidecar. In that case, you can scale based on the resource use of the web application, ignoring the sidecar container and its resource use.</p>
+<p>If you revise the target resource to have a new Pod specification with a different set of containers, you should revise the HPA spec if that newly added container is also used for scaling. If the specified container in the metric source is not present or only in a subset of the pods, then those pods are ignored, and the recommendation is recalculated. See the Algorithm for more details about the calculation. To use container resources for autoscaling define a metric source as follows:</p>
+<pre><code class="language-yaml">type: Resource
+resource:
+  name: cpu
+  target:
+    type: Utilization
+    averageUtilization: 60
+</code></pre>
+<p>In the above example, the HPA controller scales the target such that the average utilization of the CPU in the application container of all the pods is 60%.</p>
+<p>??? Note
+    Suppose you change the name of a container that a HorizontalPodAutoscaler is tracking. In that case, you can make that change in a specific order to ensure scaling remains available and effective whilst the change is being applied. Before you update the resource that defines the container (such as a Deployment), you should update the associated HPA to track the new and old container names. This way, the HPA can calculate a scaling recommendation throughout the update process.</p>
+<p>Once you have rolled out the container name change to the workload resource, tidy up by removing the old container name from the HPA specification.</p>
+<hr />
+<h2 id="scaling-on-custom-metrics"><strong>Scaling on custom metrics</strong></h2>
+<p>FEATURE STATE: Kubernetes v1.23 [stable]</p>
+<p>(the autoscaling/v2beta2 API version previously provided this ability as a beta feature)</p>
+<p>Provided that you use the autoscaling/v2 API version, you can configure a HorizontalPodAutoscaler to scale based on a custom metric (that is not built into Kubernetes or any Kubernetes component). The HorizontalPodAutoscaler controller then queries for these custom metrics from the Kubernetes API.</p>
+<p>See Support for metrics APIs for the requirements.</p>
+<hr />
+<h2 id="scaling-on-multiple-metrics"><strong>Scaling on multiple metrics</strong></h2>
+<p>FEATURE STATE: Kubernetes v1.23 [stable]</p>
+<p>(the autoscaling/v2beta2 API version previously provided this ability as a beta feature)</p>
+<p>Provided that you use the autoscaling/v2 API version, you can specify multiple metrics for a HorizontalPodAutoscaler to scale on. Then, the HorizontalPodAutoscaler controller evaluates each metric, and proposes a new scale based on that metric. The HorizontalPodAutoscaler takes the maximum scale recommended for each metric and sets the workload to that size (provided that this isn’t larger than the overall maximum that you configured).</p>
+<hr />
+<h2 id="support-for-metrics-apis"><strong>Support for metrics APIs</strong></h2>
+<p>By default, the HorizontalPodAutoscaler controller retrieves metrics from a series of APIs. In order for it to access these APIs, cluster administrators must ensure that:</p>
+<ul>
+<li>The API aggregation layer is enabled.</li>
+<li>The corresponding APIs are registered:
+For resource metrics, this is the metrics.k8s.io API, generally provided by metrics-server. It can be launched as a cluster add-on.
+For custom metrics, this is the custom.metrics.k8s.io API. It’s provided by “adapter” API servers provided by metrics solution vendors. Check your metrics pipeline to see if a Kubernetes metrics adapter is available.
+For external metrics, this is the external.metrics.k8s.io API. It may be provided by the custom metrics adapters provided above.
+For more information on these metrics paths and their differences, please see the relevant design proposals for the HPA V2, custom.metrics.k8s.io and external.metrics.k8s.io.</li>
+</ul>
+<p>For examples of how to use them see the walkthrough for using custom metrics and the walkthrough for using external metrics.</p>
+<hr />
+<h2 id="configurable-scaling-behavior"><strong>Configurable scaling behavior</strong></h2>
+<p>FEATURE STATE: Kubernetes v1.23 [stable]</p>
+<p>(the autoscaling/v2beta2 API version previously provided this ability as a beta feature)</p>
+<p>If you use the v2 HorizontalPodAutoscaler API, you can use the behavior field (see the API reference) to configure separate scale-up and scale-down behaviors. You specify these behaviors by setting scaleUp and/or scaleDown under the behavior field.</p>
+<p>You can specify a stabilization window that prevents flapping the replica count for a scaling target. Scaling policies also let you control the rate of change of replicas while scaling.</p>
+<h3 id="scaling-policies">Scaling policies</h3>
+<p>One or more scaling policies can be specified in the behavior section of the spec. When multiple policies are specified, the policy that allows the highest amount of change is the policy that is selected by default. The following example shows this behavior while scaling down:</p>
+<pre><code class="language-yaml">behavior:
+  scaleDown:
+    policies:
+    - type: Pods
+      value: 4
+      periodSeconds: 60
+    - type: Percent
+      value: 10
+      periodSeconds: 60
+
+</code></pre>
+<p>periodSeconds indicates the length of time in the past for which the policy must hold true. The maximum value that you can set for periodSeconds is 1800 (half an hour). The first policy (Pods) allows at most 4 replicas to be scaled down in one minute. The second policy (Percent) allows at most 10% of the current replicas to be scaled down in one minute.</p>
+<p>Since, by default, the policy that allows the highest amount of change is selected, the second policy will only be used when the number of pod replicas is more than 40. With 40 or fewer replicas, the first policy will be applied. For instance if there are 80 replicas and the target has to be scaled down to 10 replicas then during the first step 8 replicas will be reduced. In the next iteration, when the number of replicas is 72, 10% of the pods is 7.2, but the number is rounded to 8. On each loop of the autoscaler controller, the number of pods to be changed is re-calculated based on the number of current replicas. When the number of replicas falls below 40, the first policy (Pods) is applied, and 4 replicas will be reduced at a time.</p>
+<p>The policy selection can be changed by specifying the selectPolicy field for a scaling direction. By setting the value to Min which would select the policy that allows the smallest change in the replica count. Setting the value to Disabled completely disables scaling in that direction.</p>
+<h3 id="stabilization-window">Stabilization window</h3>
+<p>The stabilization window restricts the flapping of the replica count when the scaling metrics keep fluctuating. The autoscaling algorithm uses this window to infer a previous desired state and avoid unwanted changes to the workload scale.</p>
+<p>For example, in the following example snippet, a stabilization window is specified for scaleDown.</p>
+<pre><code class="language-yaml">behavior:
+  scaleDown:
+    stabilizationWindowSeconds: 300
+</code></pre>
+<p>When the metrics indicate that the target should be scaled down, the algorithm looks into previously computed desired states and uses the highest value from the specified interval. All desired states from the past 5 minutes will be considered in the above example.</p>
+<p>This approximates a rolling maximum and avoids having the scaling algorithm frequently remove Pods only to trigger recreating an equivalent Pod moments later.</p>
+<h3 id="default-behavior">Default Behavior</h3>
+<p>To use the custom scaling, not all fields have to be specified. Only values that need to be customized can be specified. These custom values are merged with default values, which match the existing behavior in the HPA algorithm.</p>
+<pre><code class="language-yaml">behavior:
+  scaleDown:
+    stabilizationWindowSeconds: 300
+    policies:
+    - type: Percent
+      value: 100
+      periodSeconds: 15
+  scaleUp:
+    stabilizationWindowSeconds: 0
+    policies:
+    - type: Percent
+      value: 100
+      periodSeconds: 15
+    - type: Pods
+      value: 4
+      periodSeconds: 15
+    selectPolicy: Max
+</code></pre>
+<p>For scaling down the stabilization window is 300 seconds (or the value of the --horizontal-pod-autoscaler-downscale-stabilization flag if provided). There is only a single policy for scaling down, which allows 100% of the currently running replicas to be removed, which means the scaling target can be scaled down to the minimum allowed replicas. For scaling up, there is no stabilization window. When the metrics indicate that the target should be scaled up the target is scaled up immediately. There are 2 policies where 4 pods, or 100% of the currently running replicas, may at most be added every 15 seconds till the HPA reaches its steady state.</p>
+<h3 id="example-change-downscale-stabilization-window">Example: change downscale stabilization window</h3>
+<p>To provide a custom downscale stabilization window of 1 minute, the following behavior would be added to the HPA:</p>
+<pre><code class="language-yaml">behavior:
+  scaleDown:
+    stabilizationWindowSeconds: 60
+</code></pre>
+<h3 id="example-limit-scale-down-rate">Example: limit scale-down rate</h3>
+<p>To limit the rate at which pods are removed by the HPA to 10% per minute, the following behavior would be added to the HPA:</p>
+<pre><code class="language-yaml">behavior:
+  scaleDown:
+    policies:
+    - type: Percent
+      value: 10
+      periodSeconds: 60
+</code></pre>
+<p>To ensure that no more than 5 Pods are removed per minute, you can add a second scale-down policy with a fixed size of 5 and set selectPolicy to minimum. Setting selectPolicy to Min means that the autoscaler chooses the policy that affects the smallest number of Pods:</p>
+<pre><code class="language-yaml">behavior:
+  scaleDown:
+    policies:
+    - type: Percent
+      value: 10
+      periodSeconds: 60
+    - type: Pods
+      value: 5
+      periodSeconds: 60
+    selectPolicy: Min
+</code></pre>
+<h3 id="example-disable-scale-down">Example: disable scale down</h3>
+<p>The selectPolicy value of Disabled turns off scaling in the given direction. So to prevent downscaling the following policy would be used:</p>
+<pre><code class="language-yaml">behavior:
+  scaleDown:
+    selectPolicy: Disabled
+</code></pre>
+<hr />
+<h2 id="support-for-horizontalpodautoscaler-in-kubectl"><strong>Support for HorizontalPodAutoscaler in kubectl</strong></h2>
+<p>HorizontalPodAutoscaler, like every API resource, is supported in a standard way by kubectl. You can create a new autoscaler using kubectl create command. You can list autoscalers by kubectl get hpa or get detailed description by kubectl describe hpa. Finally, you can delete an autoscaler using kubectl delete hpa.</p>
+<p>In addition, there is a special kubectl autoscale the command for creating a HorizontalPodAutoscaler object. For instance, executing kubectl autoscale rs foo --min=2 --max=5 --cpu-percent=80 will create an autoscaler for ReplicaSet foo, with target CPU utilization set to 80% and the number of replicas between 2 and 5.</p>
+<hr />
+<h2 id="implicit-maintenance-mode-deactivation"><strong>Implicit maintenance-mode deactivation</strong></h2>
+<p>You can implicitly deactivate the HPA for a target without changing the HPA configuration itself. If the target’s desired replica count is set to 0, and the HPA’s minimum replica count is greater than 0, the HPA stops adjusting the target (and sets the ScalingActive Condition on itself to false) until you reactivate it by manually adjusting the target’s desired replica count or HPA’s minimum replica count.</p>
+<h3 id="migrating-deployments-and-statefulsets-to-horizontal-autoscaling">Migrating Deployments and StatefulSets to horizontal autoscaling</h3>
+<p>When an HPA is enabled, it is recommended that the value of spec.replicas Deployment and/or StatefulSet be removed from their manifest(s). If this isn’t done, any time a change to that object is applied, for example via kubectl apply -f deployment.yaml, this will instruct Kubernetes to scale the current number of Pods to the value of the spec.replicas key. This may not be desired and troublesome when an HPA is active.</p>
+<p>Keep in mind that the removal of spec.replicas Pod counts may be degraded one time as the default value of this key is 1 (reference Deployment Replicas). Upon the update, all Pods except 1 will begin their termination procedures. Any deployment application afterward will behave normally and respect a rolling update configuration as desired.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

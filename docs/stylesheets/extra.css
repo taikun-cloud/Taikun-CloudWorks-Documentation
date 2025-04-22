@@ -1,0 +1,308 @@
+.md-typeset h1 {
+  color: #7E56C2;
+  font-weight: bold;
+  text-align: center;
+}
+
+body.homepage[data-md-color-scheme="default"] h1 {
+
+  font-size: 3rem; /* Přizpůsob podle potřeby */
+  font-weight: bold;
+  color: white; /* Základní barva textu */
+  text-align: center;
+
+  /* Glow efekt */
+  text-shadow: 0 0 10px rgba(152, 99, 255, 1.2),
+               0 0 15px rgba(152, 99, 255, 1), 
+               0 0 30px rgba(152, 99, 255, 0.9), 
+               0 0 45px rgba(152, 99, 255, 0.8), 
+               0 0 60px rgba(152, 99, 255, 0.7), 
+               0 0 75px rgba(152, 99, 255, 0.6);
+}
+
+body.homepage[data-md-color-scheme="slate"] h1 {
+
+  font-size: 3rem; /* Přizpůsob podle potřeby */
+  font-weight: bold;
+  color: white; /* Základní barva textu */
+  text-align: center;
+
+  /* Glow efekt */
+  text-shadow: 0 0 10px rgba(152, 99, 255, 1.2),
+	       0 0 15px rgba(152, 99, 255, 1), 
+               0 0 30px rgba(152, 99, 255, 0.9), 
+               0 0 45px rgba(152, 99, 255, 0.8), 
+               0 0 60px rgba(152, 99, 255, 0.7), 
+               0 0 75px rgba(152, 99, 255, 0.6);
+}
+
+body.homepage[data-md-color-scheme="default"] h2 {
+
+  font-size: 2rem; /* Přizpůsob podle potřeby */
+  font-weight: bold;
+  color: white; /* Základní barva textu */
+  text-align: left;
+
+  /* Glow efekt */
+  text-shadow: 0 0 10px rgba(152, 99, 255, 1.2),
+               0 0 15px rgba(152, 99, 255, 1), 
+               0 0 30px rgba(152, 99, 255, 0.9), 
+               0 0 45px rgba(152, 99, 255, 0.8), 
+               0 0 60px rgba(152, 99, 255, 0.7), 
+               0 0 75px rgba(152, 99, 255, 0.6);
+
+}
+
+body.homepage[data-md-color-scheme="slate"] h2 {
+
+  font-size: 2rem; /* Přizpůsob podle potřeby */
+  font-weight: bold;
+  color: white; /* Základní barva textu */
+  text-align: left;
+
+  /* Glow efekt */
+  text-shadow: 0 0 10px rgba(152, 99, 255, 1.2),
+               0 0 15px rgba(152, 99, 255, 1), 
+               0 0 30px rgba(152, 99, 255, 0.9), 
+               0 0 45px rgba(152, 99, 255, 0.8), 
+               0 0 60px rgba(152, 99, 255, 0.7), 
+               0 0 75px rgba(152, 99, 255, 0.6);
+
+}
+
+/* Omezí velikost nadpisů pouze ve výsledcích vyhledávání */
+.md-search-result h1, 
+.md-search-result h2 {
+  font-size: 1rem !important; /* Nastaví menší velikost */
+  color: inherit; /* Zachová barvu podle tématu */
+}
+
+/* Přizpůsobí text ve vyhledávacím okně */
+.md-search-result p {
+  font-size: 0.8rem; /* Menší velikost odstavce */
+}
+
+.md-typeset h2 {
+  color: #7E56C2;
+  font-weight: bold;
+}
+
+.md-typeset h3 {
+  color: #7E56C2;
+  font-weight: bold;
+}
+
+.md-typeset h4 {
+  color: #7E56C2;
+  font-weight: bold;
+}
+
+.md-typeset h5 {
+  color: #7E56C2;
+  font-weight: bold;
+}
+
+.md-sidebar  {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.custom-button {
+    background: linear-gradient(135deg, #7E56C2, #5F3E9E);
+    color: white !important; /* Světlý text */
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex; /* Pro správné zarovnání ikony */
+    align-items: center;
+    gap: 0.5em; /* Mezera mezi textem a ikonou */
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+    background: linear-gradient(135deg, #8C67D1, #6A49B0);
+    color: white !important; /* Accent barva textu */
+}
+
+/* Explicitní oprava barvy ikon uvnitř tlačítka */
+.custom-button svg {
+    fill: white !important;
+}
+
+.custom-button:hover svg {
+    fill: white !important;
+}
+
+/*tabs nahoře centr*/
+.md-tabs {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 550px) {
+    .md-tabs {
+        display: none;
+    }
+}
+
+body.homepage[data-md-color-scheme="slate"] .md-tabs__link {
+    color: white;
+}
+
+body.homepage[data-md-color-scheme="default"] .md-tabs__link {
+    color: white;
+}
+
+/*nezobrazí první v tabs nahoře*/
+.md-tabs__list li:first-child {
+    display: none;
+}
+
+.md-tabs__link {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.md-tabs__item--active .md-tabs__link {
+    color: #7E56C2; /* Zvýrazněná barva aktivní záložky */
+    border-bottom: 3px solid #7E56C2; /* Silná spodní linka */
+}
+
+body.homepage[data-md-color-scheme="slate"] .md-tabs__link:hover {
+    color: #7E56C2;
+}
+
+body.homepage[data-md-color-scheme="default"] .md-tabs__link:hover {
+    color: #7E56C2; 
+}
+
+    /* Parallax effect styling */
+
+.parallax {
+  position: fixed;       /* Fixed so it stays in place during scroll */
+  top: 0;
+  left: 0;
+  width: 100%;           /* Full width */
+  height: 100vh;         /* Full viewport height */
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;           /* Places the element behind other content */
+}
+
+/* Light mode background image (using slate scheme) */
+body[data-md-color-scheme="slate"] .parallax {
+  background-image: url('https://cdn.taikun.cloud/Frame-115%20(6).gif');
+}
+
+/* Dark mode background image (using default scheme) */
+body[data-md-color-scheme="default"] .parallax {
+  background-image: url('https://cdn.taikun.cloud/Frame-115%20(9).gif');
+}
+
+.grid.cards li {
+  background-color: rgba(28, 28, 28, 0.8);  /* A dark gray background (adjust as needed) */
+  color: #ffffff;            /* White text for contrast */
+  border-radius: 32px;        /* Rounded corners */
+  padding: 3rem;             /* Internal padding */
+  margin: 3rem;              /* Spacing between cards */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* A slight drop shadow */
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+body.homepage .md-header {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.homepage.scrolled .md-header__inner {
+  background: #000 !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.homepage .md-tabs {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #7E56C2 !important;
+}
+
+body.homepage .md-footer {
+  background: #000000 !important;
+  color: #7E56C2 !important;
+  box-shadow: none !important;
+  font-weight: bold;
+}
+
+.md-footer a {
+  color: #7E56C2 !important;
+}
+
+.faq-container {
+  max-width: 700px;
+  margin: 0;
+  color: black;
+  text-align: left;
+}
+
+.faq-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.faq-item {
+  background: linear-gradient(135deg, #7E56C2, #5F3E9E);
+  border-radius: 8px;
+  margin: 10px 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.faq-item input {
+  display: none;
+}
+
+.faq-question {
+  display: block;
+  padding: 15px;
+  background: rgba(28, 28, 28, 0.8); /*šédý box*/
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  text-align: left;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+}
+
+.faq-answer:hover{
+  background: linear-gradient(135deg, #9B6FE3, #7D50D0);
+}
+
+.faq-question:hover {
+  background: linear-gradient(135deg, #9B6FE3, #7D50D0);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  background: rgba(28, 28, 28, 0.8);
+  color: white;
+  border-radius: 0 0 8px 8px;
+  display: block;
+  transition: max-height 0.4s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* Otevření odpovědi */
+.faq-item input:checked + .faq-question + .faq-answer {
+  max-height: 500px;
+  padding: 15px;
+}

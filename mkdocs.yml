@@ -1,0 +1,333 @@
+site_name: Taikun Documentation
+site_url: https://docs.taikun.cloud/
+theme:
+  name: material
+  favicon: https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/Icon1.png
+  logo: https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/icons/taikun_logo.webp
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.instant
+    - search.highlight
+    - search.share
+    - search.suggest
+    - navigation.top
+    - navigation.tracking
+    - content.code.annotate
+    - navigation.tabs
+    - navigation.indexes
+  icon:
+    repo: material/home
+
+  palette:
+# Switch to dark  mode
+    - scheme: default
+      primary: black
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to Dark mode
+# Switch to light mode
+    - scheme: slate
+      primary: black
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to Light mode
+
+repo_url: https://taikun.cloud/
+repo_name: taikun.cloud
+
+# .yaml extra
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+# Markdown_Extensions for Reference
+# Code blocks
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+# Admonitions
+  - admonition
+  - pymdownx.details
+# Annotations
+  - attr_list
+  - md_in_html
+# Buttons (all added)
+# Content tabs
+  - pymdownx.tabbed:
+      alternate_style: true
+# Data tables
+  - tables
+# Formatting 
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+# Grids (cards) (all added)
+# Icons and Emojis
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+# Images
+  - pymdownx.blocks.caption
+# Lists
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+# Tooltips
+  - abbr
+
+extra:
+  consent:
+    actions:
+      - accept
+      - reject
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@taikuncloud
+      name: taikun.cloud on YouTube
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/taikun-cloud/posts/?feedView=all
+      name: taikun.cloud on Linkedln
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/taikun_cloud
+      name: taikun.cloud on X
+  generator: false
+copyright: Copyright &copy; 2025 - taikun.cloud a.s.
+
+# Navigation
+
+nav:
+  - Home: index.md
+  - CloudWorks:
+      - Getting Started:
+          - From Login to Production Cluster: CloudWorks/Getting_Started/From_Login_to_Production_Cluster.md
+          - Connect your Cloud: CloudWorks/Getting_Started/Connect_your_Cloud.md
+          - Project Creation: CloudWorks/Getting_Started/Project_Creation.md
+          - Creating Kubernetes cluster: CloudWorks/Getting_Started/Creating_Kubernetes_cluster.md
+          - Accessing Cluster with Kubeconfig: CloudWorks/Getting_Started/Accessing_Cluster_with_Kubeconfig.md
+          - Taikun Infra: CloudWorks/Getting_Started/Taikun_Infra.md
+      - Account Management:
+          - Add/Delete Users: CloudWorks/Account_Management/Add_and_Delete_Users.md
+          - Billing of your Taikun account: CloudWorks/Account_Management/Billing_of_your_Taikun_account.md
+          - Delete Account: CloudWorks/Account_Management/Delete_Account.md
+          - Email Notifications: CloudWorks/Account_Management/Email_notifications.md
+          - Keycloak SSO: CloudWorks/Account_Management/Keycloak_SSO.md
+          - My Profile Management: CloudWorks/Account_Management/My_Profile_management.md
+          - Organizations in Taikun: CloudWorks/Account_Management/Organizations_in_Taikun.md
+          - Password Reset: CloudWorks/Account_Management/Password_Reset.md
+          - Single Logout (SLO) Mechanism: CloudWorks/Account_Management/Single_Logout_Mechanism.md
+          - User Types: CloudWorks/Account_Management/User_Types.md
+      - Advanced Configuration:
+          - Load Balancer: CloudWorks/Advanced_Configuration/LoadBalancer.md
+          - Public Load Balancer on Zadara: CloudWorks/Advanced_Configuration/Public_Load_Balancer_on_Zadara.md
+          - Slack Configuration: CloudWorks/Advanced_Configuration/Slack_Configuration.md
+          - Taikun API: CloudWorks/Advanced_Configuration/Taikun_API.md
+          - Taikun CLI: CloudWorks/Advanced_Configuration/Taikun_CLI.md
+          - Terraform Provider for Taikun: CloudWorks/Advanced_Configuration/Terraform_Provider_for_Taikun.md
+          - Generating AWS Access and Secret Keys: CloudWorks/Advanced_Configuration/Generating_AWS_Access_and_Secret_Keys.md
+      - Managing your Projects:
+          - AI Assistant: CloudWorks/Managing_your_Projects/AI_assistant.md
+          - Application Exposure via Bastion LB: CloudWorks/Managing_your_Projects/Application_Exposure_via_Bastion_LB.md
+          - Backup: CloudWorks/Managing_your_Projects/Backup.md
+          - Create a Project: CloudWorks/Managing_your_Projects/Create_a_Project.md
+          - Create a Server: CloudWorks/Managing_your_Projects/Create_a_Server.md
+          - Enable Autoscaler: CloudWorks/Managing_your_Projects/Enable_autoscaler.md
+          - Flavor Information: CloudWorks/Managing_your_Projects/Flavor_Information.md
+          - Images: CloudWorks/Managing_your_Projects/Images.md
+          - Installing Applications: CloudWorks/Managing_your_Projects/Installing_Applications.md
+          - Kubernetes Upgrades with Taikun: CloudWorks/Managing_your_Projects/Kubernetes_Upgrades_with_Taikun.md
+          - LiveOps: CloudWorks/Managing_your_Projects/LiveOps.md
+          - Overview of Taikun Projects: CloudWorks/Managing_your_Projects/Overview_of_Taikun_Projects.md
+          - Project Details: CloudWorks/Managing_your_Projects/Project_Details.md
+          - Supported Application Runtime Environments: CloudWorks/Managing_your_Projects/Supported_Application_Runtime_Environments.md
+          - VMs Management: CloudWorks/Managing_your_Projects/VMs_Management.md
+          - vCluster: CloudWorks/Managing_your_Projects/vCluster.md
+      - Monitoring your Projects:
+          - Audit Log: CloudWorks/Monitoring_your_Projects/Audit_Log.md
+          - Available Monitoring Tools: CloudWorks/Monitoring_your_Projects/Available_Monitoring_tools.md
+          - Chargeback: CloudWorks/Monitoring_your_Projects/Chargeback.md
+          - Configure Alerting Profiles: CloudWorks/Monitoring_your_Projects/Configure_Alerting_Profile.md
+          - Enable Monitoring in Projects: CloudWorks/Monitoring_your_Projects/Enable_Monitoring_in_Projects.md
+          - Events, Logs, and Metrics of Projects: CloudWorks/Monitoring_your_Projects/Events,_Logs,_and_Metrics_of_Projects.md
+          - Kubernetes dashboard: CloudWorks/Monitoring_your_Projects/Kubernetes_Dashboard.md
+          - Live Servers: CloudWorks/Monitoring_your_Projects/Live_Servers.md
+          - Project Quotas: CloudWorks/Monitoring_your_Projects/Project_Quotas.md
+          - Showback rules: CloudWorks/Monitoring_your_Projects/Showback_rules.md
+          - Taikun Notifications: CloudWorks/Monitoring_your_Projects/Taikun_Notifications.md
+          - Taikun Requests: CloudWorks/Monitoring_your_Projects/Taikun_Requests.md
+          - Ticketing in Taikun: CloudWorks/Monitoring_your_Projects/Ticketing_in_Taikun.md
+          - Usage Reports: CloudWorks/Monitoring_your_Projects/Usage_Reports.md
+      - Navigating in Taikun:
+          - Applications: CloudWorks/Navigating_in_Taikun/Applications.md
+          - Billing: CloudWorks/Navigating_in_Taikun/Billing.md
+          - Configurations: CloudWorks/Navigating_in_Taikun/Configurations.md
+          - Credentials: CloudWorks/Navigating_in_Taikun/Credentials.md
+          - Manager: CloudWorks/Navigating_in_Taikun/Manager.md
+          - Overview: CloudWorks/Navigating_in_Taikun/Overview.md
+          - Partner: CloudWorks/Navigating_in_Taikun/Partner.md
+          - Profiles: CloudWorks/Navigating_in_Taikun/Profiles.md
+          - Taikun User Interface: CloudWorks/Navigating_in_Taikun/Taikun_User_Interface.md
+      - Profile Management:
+          - Access Profiles: CloudWorks/Profile_Management/Access_Profiles.md
+          - Alerting Profile: CloudWorks/Profile_Management/Alerting_Profiles.md
+          - Creating a Profile: CloudWorks/Profile_Management/Creating_Profiles.md
+          - Kubernetes Profiles: CloudWorks/Profile_Management/Kubernetes_Profiles.md
+          - Policy Profiles: CloudWorks/Profile_Management/Policy_Profiles.md
+          - Standalone Profile: CloudWorks/Profile_Management/Standalone_Profiles.md
+      - Supported Cloud Providers:
+          - All Cloud Providers Overview: CloudWorks/Supported_Cloud_Providers/All_Cloud_Providers_Overview.md
+          - Amazon Web Services: CloudWorks/Supported_Cloud_Providers/Amazon_Web_Services.md
+          - Google Cloud Platform: CloudWorks/Supported_Cloud_Providers/Google_Cloud_Platform.md
+          - Microsoft Azure: CloudWorks/Supported_Cloud_Providers/Microsoft_Azure.md
+          - OpenStack: CloudWorks/Supported_Cloud_Providers/OpenStack.md
+          - Proxmox: CloudWorks/Supported_Cloud_Providers/Proxmox.md
+          - Red Hat OpenShift: CloudWorks/Supported_Cloud_Providers/Red_Hat_OpenShift.md
+          - VMware Tanzu: CloudWorks/Supported_Cloud_Providers/VMware_Tanzu.md
+          - VMware vSphere: CloudWorks/Supported_Cloud_Providers/VMware_vSphere.md
+          - Zadara: CloudWorks/Supported_Cloud_Providers/Zadara.md
+          - Zededa: CloudWorks/Supported_Cloud_Providers/Zededa.md
+      - Taikun CloudWorks Overview:
+          - ArtifactHub Repositories: CloudWorks/Taikun_CloudWorks_Overview/ArtifactHub_Repositories.md
+          - Container images: CloudWorks/Taikun_CloudWorks_Overview/Container_images.md
+          - Horizontal Pod Autoscaling in Kubernetes: CloudWorks/Taikun_CloudWorks_Overview/Horizontal_Pod_Autoscaling_in_Kubernetes.md
+          - Importing Existing Kubernetes Cluster: CloudWorks/Taikun_CloudWorks_Overview/Importing_Kubernetes_Cluster.md
+          - Ingress in Kubernetes: CloudWorks/Taikun_CloudWorks_Overview/Ingress_in_Kubernetes.md
+          - Kubernetes DNS Pod Service: CloudWorks/Taikun_CloudWorks_Overview/Kubernetes_DNS_Pod_Service.md
+          - Kubernetes Persistent Volumes: CloudWorks/Taikun_CloudWorks_Overview/Kubernetes_Persistent_Volumes.md
+          - Kubernetes Storage Classes: CloudWorks/Taikun_CloudWorks_Overview/Kubernetes_Storage_Volumes.md
+          - Kubernetes Taints and Tolerations: CloudWorks/Taikun_CloudWorks_Overview/Kubernetes_Taints_and_Tolerations.md
+          - Kubernetes Volume Snapshots: CloudWorks/Taikun_CloudWorks_Overview/Kubernetes_Volume_Snapshots.md
+          - Metrics: CloudWorks/Taikun_CloudWorks_Overview/Metrics.md
+          - CloudWorks Multi-Tenancy: CloudWorks/Taikun_CloudWorks_Overview/Multi-Tenant.md
+          - Network Plugins: CloudWorks/Taikun_CloudWorks_Overview/Network_Plugins.md
+          - Network Policies: CloudWorks/Taikun_CloudWorks_Overview/Network_Policies.md
+          - Nexus Functionality: CloudWorks/Taikun_CloudWorks_Overview/Nexus_Functionality.md
+          - Prometheus for Taikun CloudWorks: CloudWorks/Taikun_CloudWorks_Overview/Prometheus_for_Taikun_CloudWorks.md
+          - Scope of Support from Taikun CloudWorks: CloudWorks/Taikun_CloudWorks_Overview/Scope_of_Support_from_Taikun_CloudWorks.md
+          - Serverless Kubernetes: CloudWorks/Taikun_CloudWorks_Overview/Serverless_Kubernetes.md
+          - Service, Load Balancing, and Networking in Kubernetes: CloudWorks/Taikun_CloudWorks_Overview/Service,_Load_Balancing,_and_Networking_in_Kubernetes.md
+          - Taikun CloudWorks - Architecture overview: CloudWorks/Taikun_CloudWorks_Overview/Taikun_CloudWorks_Architecture.md
+          - Taikun CloudWorks Operators: CloudWorks/Taikun_CloudWorks_Overview/Taikun_CloudWorks_Operators.md
+          - Taikun Compatibility Matrix: CloudWorks/Taikun_CloudWorks_Overview/Taikun_Compatibility_Matrix.md
+          - Tasks and Pipelines in Taikun CloudWorks: CloudWorks/Taikun_CloudWorks_Overview/Tasks_and_Pipelines_in_Taikun_CloudWorks.md
+          - Tekton Operators: CloudWorks/Taikun_CloudWorks_Overview/Tekton_Operators.md
+      - Taikun Release Notes: CloudWorks/Taikun_Release_Notes.md
+  - Open Cloud Platform:
+      - Taikun OCP Overview:
+          - Automatic Migration of VMs Upon Failure of Host: Open_Cloud_Platform/Taikun_OCP-Overview/Automatic_Migration_of_VMs_Upon_Failure_of_Host.md
+          - CLI Client: Open_Cloud_Platform/Taikun_OCP-Overview/CLI_Client.md
+          - CLI Command List: Open_Cloud_Platform/Taikun_OCP-Overview/CLI_Command_List.md
+          - Configure Postfix Client: Open_Cloud_Platform/Taikun_OCP-Overview/Configure_Postfix_CLient.md
+          - Get Images: Open_Cloud_Platform/Taikun_OCP-Overview/Get_Images.md
+          - Getting Started with Ceilometer: Open_Cloud_Platform/Taikun_OCP-Overview/Getting_Started_with_Ceilometer.md
+          - Install CLI: Open_Cloud_Platform/Taikun_OCP-Overview/Install_CLI.md
+          - Maintanance Mode: Open_Cloud_Platform/Taikun_OCP-Overview/Maintanance_Mode.md
+          - Overcommitting CPU and RAM: Open_Cloud_Platform/Taikun_OCP-Overview/Overcommitting_CPU_and_RAM.md
+          - Routers: Open_Cloud_Platform/Taikun_OCP-Overview/Routers.md
+          - SDK Reference: Open_Cloud_Platform/Taikun_OCP-Overview/SDK_Reference.md
+          - Security Group Rules in CLI: Open_Cloud_Platform/Taikun_OCP-Overview/Security_Group_Rules_in_CLI.md
+          - Supported OS Images: Open_Cloud_Platform/Taikun_OCP-Overview/Supported_OS_Images.md
+          - Taikun OCP Architecture: Open_Cloud_Platform/Taikun_OCP-Overview/Taikun_OCP_Architecture.md
+          - Taikun OCP Limits: Open_Cloud_Platform/Taikun_OCP-Overview/Taikun_OCP_Limits.md
+          - Using Mojo with Taikun OCP: Open_Cloud_Platform/Taikun_OCP-Overview/Using_Mojo_with_Taikun_OCP.md
+      - Taikun OCP Barbican:
+          - Key Manager Overview (barbican): Open_Cloud_Platform/Taikun_OCP-Barbican/Key_Manager_Overview.md
+      - Taikun OCP Ceph:
+          - Block Devices: Open_Cloud_Platform/Taikun_OCP-Ceph/Block_Devices.md
+          - Ceph Architecture: Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Architecture.md
+          - Ceph Disaster Recovery: Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Disaster_Recovery.md
+          - Ceph Encryption: Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Encryption.md
+          - Ceph Integration with Keystone: Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Integration_with_Keystone.md
+          - Ceph Performance Testing: Open_Cloud_Platform/Taikun_OCP-Ceph/Ceph_Performance_Testing.md
+      - Taikun OCP Cinder:
+          - Block Storage Overview (cinder): Open_Cloud_Platform/Taikun_OCP-Cinder/Block_Storage_Overview-cinder.md
+          - Manage Volumes via CLI: Open_Cloud_Platform/Taikun_OCP-Cinder/Manage_Volumes_via_CLI.md
+          - Volume Backups: Open_Cloud_Platform/Taikun_OCP-Cinder/Volume_Backups.md
+          - Volume encryption supported by the key manager: Open_Cloud_Platform/Taikun_OCP-Cinder/Volume_encryption_supported_by_the_key_maager.md
+      - Taikun OCP Designate:
+          - Introduction to Designate (DNS-as-a-Service): Open_Cloud_Platform/Taikun_OCP-Designate/Introduction_to_Designate.md
+      - Taikun OCP Glance:
+          - Image Service Overview (glance): Open_Cloud_Platform/Taikun_OCP-Glance/Image_Service_Overview_glance.md
+          - Manage images: Open_Cloud_Platform/Taikun_OCP-Glance/Manage_images.md
+      - Taikun OCP Heat:
+          - Orchestration Service Overview (heat): Open_Cloud_Platform/Taikun_OCP-Heat/Orchestration_Service_Overview.md
+      - Taikun OCP Horizon:
+          - Launch Virtual Machines (Instances): Open_Cloud_Platform/Taikun_OCP-Horizon/Launch_Virtual_Machines.md
+          - Manage Volumes: Open_Cloud_Platform/Taikun_OCP-Horizon/Manage_Volumes.md
+          - Taikun OCP Dashboard (horizon): Open_Cloud_Platform/Taikun_OCP-Horizon/Taikun_OCP_Dashboard.md
+          - View and Manage Quotas: Open_Cloud_Platform/Taikun_OCP-Horizon/View_and_Manage_Quotas.md
+      - Taikun OCP Ironic:
+          - Ansible Deploy Interface: Open_Cloud_Platform/Taikun_OCP-Ironic/Ansible_Deploy_Interface.md
+          - Bare Metal service overview: Open_Cloud_Platform/Taikun_OCP-Ironic/Bare_Metal_service_overview.md
+          - Drivers, Hardware Types and Hardware Interfaces: Open_Cloud_Platform/Taikun_OCP-Ironic/Drivers,_Hardware_Types_and_Hardware_Interfaces.md
+          - Enrollment of Hardware: Open_Cloud_Platform/Taikun_OCP-Ironic/Enrollment_of_Hardware.md
+          - Hardware Inspection: Open_Cloud_Platform/Taikun_OCP-Ironic/Hardware_Inspection.md
+          - High Availability and Scalability: Open_Cloud_Platform/Taikun_OCP-Ironic/High_Availability_and_Scalability.md
+          - Ironic: Open_Cloud_Platform/Taikun_OCP-Ironic/Ironic.md
+          - Ironic Console: Open_Cloud_Platform/Taikun_OCP-Ironic/Ironic_Console.md
+          - iDRAC Driver: Open_Cloud_Platform/Taikun_OCP-Ironic/iDRAC_Driver.md
+      - Taikun OCP Keystone:
+          - Configuring Keystone for Federation: Open_Cloud_Platform/Taikun_OCP-Keystone/Configuring_Keystone_for_Federation.md
+          - Create a Domain, Projects, Users, and Roles: Open_Cloud_Platform/Taikun_OCP-Keystone/Create_a_Domain,_Projects,_Users,_and_Roles.md
+          - Keystone Architecture: Open_Cloud_Platform/Taikun_OCP-Keystone/Keystone_Architecture.md
+          - Keystone Configuration: Open_Cloud_Platform/Taikun_OCP-Keystone/Keystone_Configuration.md
+          - Manage Projects, Users, and Roles: Open_Cloud_Platform/Taikun_OCP-Keystone/Manage_Projects,_Users,_and_Roles.md
+          - Middleware Audit: Open_Cloud_Platform/Taikun_OCP-Keystone/Middleware_Audit.md
+          - Role Types: Open_Cloud_Platform/Taikun_OCP-Keystone/Role_Types.md
+      - Taikun OCP Manila:
+          - Administration Guide: Open_Cloud_Platform/Taikun_OCP-Manila/Administration_Guide.md
+          - Shared Filesystems Overview (manila): Open_Cloud_Platform/Taikun_OCP-Manila/Shared_Filesystems_Overview.md
+      - Taikun OCP Mojo:
+          - Add a New OS Bundle to Taikun OCP Baremetal: Open_Cloud_Platform/Taikun_OCP-Mojo/Add_a_New_OS_Bundle_to_Taikun_OCP_Baremetal.md
+          - Create and Manage Node Pools in Taikun OCP Baremetal: Open_Cloud_Platform/Taikun_OCP-Mojo/Create_and_Manage_Node_Pools_in_Taikun_OCP_Baremetal.md
+          - Installing Taikun OCP Baremetal: Open_Cloud_Platform/Taikun_OCP-Mojo/Installing_Taikun_OCP_Baremetal.md
+          - Taikun OCP Baremetal Keycloak integration: Open_Cloud_Platform/Taikun_OCP-Mojo/Taikun_OCP_Baremetal_Keycloak_integration.md
+          - Taikun OCP Baremetal Overview: Open_Cloud_Platform/Taikun_OCP-Mojo/Taikun_OCP_Baremetal_Overview.md
+      - Taikun OCP Monitoring:
+          - Prometheus – Alertmanager: Open_Cloud_Platform/Taikun_OCP-Monitoring/Prometheus_Alertmanager.md
+          - Prometheus Service Overview: Open_Cloud_Platform/Taikun_OCP-Monitoring/Prometheus_Service_Overview.md
+      - Taikun OCP Neutron:
+          - Floating IP Port Forwarding: Open_Cloud_Platform/Taikun_OCP-Neutron/Floating_IP_Port_Forwarding.md
+          - Network CLI Guide: Open_Cloud_Platform/Taikun_OCP-Neutron/Network_CLI_Guide.md
+          - Quality of Service (QoS): Open_Cloud_Platform/Taikun_OCP-Neutron/Quality_of_Service.md
+          - Role-Based Access Control (RBAC): Open_Cloud_Platform/Taikun_OCP-Neutron/Role-Based_Access_Control.md
+          - Subnet Pools: Open_Cloud_Platform/Taikun_OCP-Neutron/Subnet_Pools.md
+          - Taikun OCP Networking Overview: Open_Cloud_Platform/Taikun_OCP-Neutron/Taikun_OCP_Networking_Overview.md
+      - Taikun OCP Nova:
+          - Attaching virtual GPU devices to guests: Open_Cloud_Platform/Taikun_OCP-Nova/Attaching_virtual_GPU_devices_to_guests.md
+          - Availability Zones: Open_Cloud_Platform/Taikun_OCP-Nova/Availability_Zones.md
+          - Compute (nova): Open_Cloud_Platform/Taikun_OCP-Nova/Compute-nova.md
+          - Emulated Trusted Platform Module (vTPM): Open_Cloud_Platform/Taikun_OCP-Nova/Emulated_Trusted_Platform_Module.md
+          - Flavors Overview: Open_Cloud_Platform/Taikun_OCP-Nova/Flavors_Overview.md
+          - Host Aggregates: Open_Cloud_Platform/Taikun_OCP-Nova/Host_Aggregates.md
+          - Hypervisors: Open_Cloud_Platform/Taikun_OCP-Nova/Hypervisors.md
+          - Manage Project Security: Open_Cloud_Platform/Taikun_OCP-Nova/Manage_Project_Security.md
+          - Manage Quotas: Open_Cloud_Platform/Taikun_OCP-Nova/Manage_Quotas.md
+          - Show Usage Statistics for Hosts and Instances: Open_Cloud_Platform/Taikun_OCP-Nova/Show_Usage_Statistics_for_Hosts_and_Instances.md
+      - Taikun OCP Octavia:
+          - Devstack with Octavia Load Balancing: Open_Cloud_Platform/Taikun_OCP-Octavia/Devstack_with_Octavia_Load_Balancing.md
+          - Load Balancing Overview (octavia): Open_Cloud_Platform/Taikun_OCP-Octavia/Load_Balancing_Overview.md
+          - Octavia CLI Reference: Open_Cloud_Platform/Taikun_OCP-Octavia/Octavia_CLI_Reference.md
+      - Taikun OCP Skydive:
+          - Taikun OCP – Skydive: Open_Cloud_Platform/Taikun_OCP-Skydive/Taikun_OCP_-_Skydive.md
+  - Glossarry:
+      - Glossarry: Glossary/Glossary.md
+
