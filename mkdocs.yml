@@ -233,6 +233,7 @@ nav:
       - Taikun Release Notes: CloudWorks/Taikun_Release_Notes.md
   - Open Cloud Platform:
       - Taikun OCP Overview:
+          - Taikun OCP Architecture: Open_Cloud_Platform/Taikun_OCP-Overview/Taikun_OCP_Architecture.md
           - Automatic Migration of VMs Upon Failure of Host: Open_Cloud_Platform/Taikun_OCP-Overview/Automatic_Migration_of_VMs_Upon_Failure_of_Host.md
           - CLI Client: Open_Cloud_Platform/Taikun_OCP-Overview/CLI_Client.md
           - CLI Command List: Open_Cloud_Platform/Taikun_OCP-Overview/CLI_Command_List.md
@@ -246,7 +247,6 @@ nav:
           - SDK Reference: Open_Cloud_Platform/Taikun_OCP-Overview/SDK_Reference.md
           - Security Group Rules in CLI: Open_Cloud_Platform/Taikun_OCP-Overview/Security_Group_Rules_in_CLI.md
           - Supported OS Images: Open_Cloud_Platform/Taikun_OCP-Overview/Supported_OS_Images.md
-          - Taikun OCP Architecture: Open_Cloud_Platform/Taikun_OCP-Overview/Taikun_OCP_Architecture.md
           - Taikun OCP Limits: Open_Cloud_Platform/Taikun_OCP-Overview/Taikun_OCP_Limits.md
           - Using Mojo with Taikun OCP: Open_Cloud_Platform/Taikun_OCP-Overview/Using_Mojo_with_Taikun_OCP.md
       - Taikun OCP Barbican:
