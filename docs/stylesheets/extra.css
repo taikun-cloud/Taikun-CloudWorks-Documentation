@@ -306,3 +306,46 @@ body.homepage .md-footer {
   max-height: 500px;
   padding: 15px;
 }
+
+@media (max-width: 436px) {
+  body.homepage[data-md-color-scheme="default"] h1,
+  body.homepage[data-md-color-scheme="slate"] h1 {
+    font-size: 2.5rem !important;
+    font-weight: bold;
+    color: white; /* Základní barva textu */
+    text-align: center;
+
+        /* Glow efekt */
+    text-shadow: 0 0 10px rgba(152, 99, 255, 1.2),
+                 0 0 15px rgba(152, 99, 255, 1), 
+                 0 0 30px rgba(152, 99, 255, 0.9), 
+                 0 0 45px rgba(152, 99, 255, 0.8), 
+                 0 0 60px rgba(152, 99, 255, 0.7), 
+                 0 0 75px rgba(152, 99, 255, 0.6);
+  }
+}
+
+@media (max-width: 767px) {
+  body[data-md-color-scheme="default"] .parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none !important;
+    background-color: #1a0f2f !important;
+    z-index: -1;
+  }
+
+  body[data-md-color-scheme="slate"] .parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none !important;
+    background-color: #1a0f2f !important;
+    z-index: -1;
+  }
+}
+
