@@ -143,6 +143,7 @@ nav:
           - Taikun CLI: CloudWorks/Advanced_Configuration/Taikun_CLI.md
           - Terraform Provider for Taikun: CloudWorks/Advanced_Configuration/Terraform_Provider_for_Taikun.md
           - Generating AWS Access and Secret Keys: CloudWorks/Advanced_Configuration/Generating_AWS_Access_and_Secret_Keys.md
+          - Creating an Azure Cluster for AKS: CloudWorks/Advanced_Configuration/Creating_an_Azure_Cluster_for_AKS.md
       - Managing your Projects:
           - AI Assistant: CloudWorks/Managing_your_Projects/AI_assistant.md
           - Application Exposure via Bastion LB: CloudWorks/Managing_your_Projects/Application_Exposure_via_Bastion_LB.md
