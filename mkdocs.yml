@@ -144,6 +144,8 @@ nav:
           - Terraform Provider for Taikun: CloudWorks/Advanced_Configuration/Terraform_Provider_for_Taikun.md
           - Generating AWS Access and Secret Keys: CloudWorks/Advanced_Configuration/Generating_AWS_Access_and_Secret_Keys.md
           - Creating an Azure Cluster for AKS: CloudWorks/Advanced_Configuration/Creating_an_Azure_Cluster_for_AKS.md
+          - Creating a GKE Cluster on Google Cloud: CloudWorks/Advanced_Configuration/Creating_a_GKE_Cluster_on_Google_Cloud.md
+          - Creating an EKS Cluster in Auto Mode: CloudWorks/Advanced_Configuration/Creating_an_EKS_Cluster_in_Auto_Mode.md
       - Managing your Projects:
           - AI Assistant: CloudWorks/Managing_your_Projects/AI_assistant.md
           - Application Exposure via Bastion LB: CloudWorks/Managing_your_Projects/Application_Exposure_via_Bastion_LB.md
@@ -230,6 +232,7 @@ nav:
           - Taikun Compatibility Matrix: CloudWorks/Taikun_CloudWorks_Overview/Taikun_Compatibility_Matrix.md
           - Tasks and Pipelines in Taikun CloudWorks: CloudWorks/Taikun_CloudWorks_Overview/Tasks_and_Pipelines_in_Taikun_CloudWorks.md
           - Tekton Operators: CloudWorks/Taikun_CloudWorks_Overview/Tekton_Operators.md
+          - Tools and Automation in Taikun CloudWorks: CloudWorks/Taikun_CloudWorks_Overview/Tools_and_Automation_in_Taikun_CloudWorks.md
       - Taikun Release Notes: CloudWorks/Taikun_Release_Notes.md
   - Open Cloud Platform:
       - Taikun OCP Overview:
