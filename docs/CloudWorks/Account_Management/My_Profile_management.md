@@ -1,5 +1,5 @@
 # **My Profile Management**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User** | **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 ## **Access My Profile**
 
