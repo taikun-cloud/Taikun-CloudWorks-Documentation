@@ -4,7 +4,7 @@ Taikun offers a range of alerting instruments to help you stay informed about th
 ---
 
 ## **Inbox**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Whenever any User of your Organization makes a change (e.g. creating a Project, adding a Backup, deleting a cluster), you will be notified in Taikun’s Notifications menu, accessible from every page.
 
@@ -18,7 +18,7 @@ By default, the Notifications menu shows the latest 15 events. Press the “All 
 ---
 
 ## **Audit Log**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 The [**Audit Log**](https://docs.taikun.cloud/CloudWorks/Monitoring_your_Projects/Audit_Log/) is a feature that allows you to view a complete history of events in your account. It provides a detailed record of actions taken by users, such as creating servers and Projects, adding new users, and activating Monitoring tools.
 
@@ -34,7 +34,7 @@ If you need to track changes made to your account or audit the activity happenin
 ---
 
 ## **Email notifications**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Taikun also has the ability to send notifications to your email address in order to help you monitor the state of your Kubernetes clusters. By setting up these notifications, you can stay informed about the status of your clusters and take action if any issues arise.
 
