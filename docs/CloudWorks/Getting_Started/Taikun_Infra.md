@@ -1,5 +1,5 @@
 # **Taikun Infra**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Taikun Infra revolutionizes deploying clusters, introducing ease and speed that significantly enhance your experience. The platform’s robust capabilities accelerate your utilization of its resources, providing immediate access to cloud services and essential backup credentials. Upon creating a new account, you’ll receive a **15-day trial** of Taikun Infra, an excellent opportunity to delve into the platform’s features and unlock its full potential.
 
