@@ -2,7 +2,6 @@
 **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 !!! Warning
-
 	LoadBalancing Flavor should have at least **\* 1GB RAM \* 1 vCPU**
 
 ## **Prepare the configuration file prod.yaml**
