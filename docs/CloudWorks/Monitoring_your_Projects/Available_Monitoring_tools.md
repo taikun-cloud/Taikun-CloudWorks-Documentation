@@ -1,5 +1,5 @@
 # **Available Monitoring Tools**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Taikun offers a variety of tables, dashboards, and logs that allow you to monitor the performance and health of your clusters easily. These features are readily available within the application, giving you quick and easy access to information. Whether you’re looking for a high-level overview of your clusters or need to dig into the details, our monitoring features have you covered.
 
