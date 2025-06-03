@@ -1,5 +1,5 @@
 # **Live Servers**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Managers of Taikun can access the Servers menu from the left-hand navigation panel to see the list of all running servers in the created Project to monitor their state.
 
