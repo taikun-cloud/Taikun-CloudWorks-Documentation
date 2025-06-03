@@ -1,5 +1,5 @@
 # **Password Reset**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User** | **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 To reset your Taikun password, follow these steps:
 
