@@ -1,5 +1,5 @@
 # **Profiles**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Profiles provide an overview of each available profile within Taikun. They allow you to configure templates for accessing your clusters, set up notifications for alerts, and more. If you want to use a profile in your projects, you need to add it and select the appropriate option during project creation.
 
@@ -42,7 +42,7 @@ Alerting Profiles
 ---
 
 ## **Policy Profiles**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 [**Policy profiles**](https://docs.taikun.cloud/CloudWorks/Profile_Management/Policy_Profiles/) define various security configurations that can be applied to Kubernetes clusters. Set the necessary parameters and choose a policy profile from the dropdown menu during project creation.
 
