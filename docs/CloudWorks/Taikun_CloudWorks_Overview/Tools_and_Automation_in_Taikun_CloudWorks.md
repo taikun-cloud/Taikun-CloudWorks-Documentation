@@ -48,7 +48,6 @@ This repository contains a single Bash script, `ott.sh`, which automates the pro
 
 For a detailed explanation of how to automate the cloud integration from OpenStack to Taikun, visit the [Automating Cloud Integration: OpenStack to Taikun Made Easy](https://docs.taikun.cloud/CloudWorks/Account_Management/Organizations_in_Taikun/#automating-cloud-integration-openstack-to-taikun-made-easy) page.
 
-
 !!! Note
 	The script is designed for advanced users who are familiar with OpenStack and Taikun CloudWorks and wish to automate the migration process.
 ---
