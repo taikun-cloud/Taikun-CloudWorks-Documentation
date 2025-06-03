@@ -1,5 +1,5 @@
 # **Access Profiles**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 !!! Note
 	When using SSH to connect to the servers, **do not** use the user "ubuntu"; it is reserved for Taikun’s cluster management.
