@@ -1,5 +1,5 @@
 # **Project Details**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 By clicking the selected Project, you are redirected to the **Servers**. Here you can see all servers for the project with their description.
 
