@@ -1,5 +1,5 @@
 # **Kubernetes Profiles**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Each profile is characterized by the following parameters:
 
@@ -46,9 +46,9 @@ Add Kubernetes Profile
 - **Enable WebAssembly (Wasm)**: WebAssembly (Wasm) enables high-performance execution of compiled code within Kubernetes.
   It allows efficient and secure running of applications written in C, C++, and Rust within Kubernetes environments.
 - **Proxmox Storage (optional)**: In Taikun, "Proxmox storage" refers to storage managed by Taikun, not native Proxmox storage. It is integrated into your Kubernetes environment for efficient storage management. The following storage options are available:
-  - **NFS (Network File System)**: Allows sharing file storage across multiple servers.
-  - **OpenEBS**: A solution for container-attached storage for Kubernetes.
-  - **Longhorn**: A lightweight, highly available distributed block storage system for Kubernetes.
+    - **NFS (Network File System)**: Allows sharing file storage across multiple servers.
+    - **OpenEBS**: A solution for container-attached storage for Kubernetes.
+    - **Longhorn**: A lightweight, highly available distributed block storage system for Kubernetes.
 
 ---
 
