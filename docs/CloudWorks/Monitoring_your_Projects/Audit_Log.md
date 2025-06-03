@@ -1,5 +1,5 @@
 # **Audit Log**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 You get real-time notifications via [**Inbox**](https://docs.taikun.cloud/CloudWorks/Monitoring_your_Projects/Taikun_Notifications/) but you can also preview all the changes made in the Audit Log. The Audit Log can be located under the [**Manager**](https://docs.taikun.cloud/CloudWorks/Navigating_in_Taikun/Manager/) section of your account.
 
