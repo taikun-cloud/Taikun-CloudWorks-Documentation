@@ -1,5 +1,5 @@
 # **VMware vSphere**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Virtualization platform developed by VMware. It enables organizations to create and manage virtualized IT environments, including virtual machines (VMs), on a large scale. It also provides features such as virtualization of compute, storage, and networking resources.
 
