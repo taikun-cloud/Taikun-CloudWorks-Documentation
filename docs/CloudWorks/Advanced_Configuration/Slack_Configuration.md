@@ -1,5 +1,5 @@
 # **Slack Configuration**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 If your team uses Slack, you can receive all the changes made in your Taikun Organization directly in the Slack channel of your choice.
 
