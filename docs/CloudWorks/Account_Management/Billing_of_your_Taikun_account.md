@@ -4,7 +4,7 @@ hide:
 ---
 
 # **Billing of your Taikun account**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 If you registered your account on the Taikun webpage (*Taikun.cloud*), you can quickly check your subscription status by following these steps:
 
