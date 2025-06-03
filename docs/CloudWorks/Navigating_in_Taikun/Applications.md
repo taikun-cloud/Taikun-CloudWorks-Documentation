@@ -1,5 +1,5 @@
 # **Applications**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Taikun allows you to install applications to Kubernetes clusters directly from the web interface. Check [this article](https://docs.taikun.cloud/CloudWorks/Managing_your_Projects/Installing_Applications/) to see how to install applications in Taikun.
 
