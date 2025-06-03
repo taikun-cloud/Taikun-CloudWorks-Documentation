@@ -1,5 +1,5 @@
 # **LiveOps**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 LiveOps provides users with a real-time overview of the status and availability of all elements in the Kubernetes cluster, offering a live, dynamic interface to monitor resources. Previously, users had to rely on third-party tools or SSH into the cluster for status checks, requiring constant refreshing. With LiveOps, all changes in the cluster are displayed immediately, allowing users to track resources effortlessly.
 
