@@ -1,5 +1,5 @@
 # **Credentials**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Credentials tab is a central management panel for all tools you can connect with Taikun. Whenever you want to connect your Cloud provider, Backup Storage, or Showback tool, the Credentials section is right for you!
 
