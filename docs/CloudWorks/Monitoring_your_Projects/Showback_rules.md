@@ -1,5 +1,5 @@
 # **Showback rules**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Showback rules in Taikun are used to track and report the usage of cloud resources by individual users or departments within an organization. The primary purpose of the Showback Rules is to provide visibility into the costs associated with using Cloud resources and promote accountability for resource usage.
 
