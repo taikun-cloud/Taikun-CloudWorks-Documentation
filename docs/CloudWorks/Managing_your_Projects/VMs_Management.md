@@ -1,5 +1,5 @@
 # **VMs Management**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 By clicking the VMs button on the Servers page or VMs View in Project page, you are redirected to the VM Servers. Here you can see all the virtual machines for your Project with their description.
 
