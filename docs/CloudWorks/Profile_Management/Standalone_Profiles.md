@@ -1,5 +1,5 @@
 # **Standalone Profile**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Standalone Profiles set specific policies for creating Virtual Machines within your clusters. You can see all Standalone profiles created for your Organization in this tab. Each profile is described by its ID, Name, Organization, and associated Virtual Machines.
 
@@ -7,6 +7,7 @@ Standalone Profiles set specific policies for creating Virtual Machines within y
 /// caption
 Standalone Profiles
 ///
+
 ---
 
 ## **Available Actions**
