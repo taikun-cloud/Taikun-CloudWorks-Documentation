@@ -1,5 +1,5 @@
 # **Manager**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Manager panel is a section available for Managers and Partners of your Taikun account. You will find buttons that let you efficiently configure your Taikun account properties, users, and associated costs.
 
