@@ -29,7 +29,7 @@ TAIKUN_PASSWORD
 
 ```
 TAIKUN_KEYCLOAK_EMAIL
-AIKUN_KEYCLOAK_PASSWORD
+TAIKUN_KEYCLOAK_PASSWORD
 ```
 
 - The default API host is api.taikun.cloud. To override it, set the following environment variable:
