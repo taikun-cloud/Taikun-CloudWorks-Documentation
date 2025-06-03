@@ -1,5 +1,5 @@
 # **Configure Alerting Profiles**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Taikun is designed to inform you of any issues or events in your Kubernetes clusters. If something goes wrong with one of your Projects, our tool can send notifications to any email address, webhook, or available integrations. Alerting Profiles can be added to your account’s new or existing Project.
 
