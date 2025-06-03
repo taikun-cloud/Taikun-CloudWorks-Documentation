@@ -1,5 +1,5 @@
 # **Policy Profiles**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 *Policy Profile* uses [**OPA**](https://www.openpolicyagent.org/) (Open Policy Agent) to centralize operations, security, and compliance.
 
