@@ -1,5 +1,5 @@
 # **Create a Server**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 To create a new server, click **"Add Server"** and fill in all the required fields.
 
