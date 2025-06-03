@@ -1,5 +1,5 @@
 # **Create a Project**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 You can create a new Project straight after adding your Cloud credentials! During the project creation, you can specify various functions to be used.
 
