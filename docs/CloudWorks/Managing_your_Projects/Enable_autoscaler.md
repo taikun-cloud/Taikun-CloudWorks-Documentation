@@ -11,7 +11,7 @@ With **Taikun’s autoscaling**, you can set rules to automatically scale worker
 ---
 
 ## **Enabling Autoscaler During Project Creation**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 The first way to enable autoscaling is **during the project creation process**.
 
@@ -37,7 +37,7 @@ Enable Autoscaler
 ---
 
 ## **Enabling Autoscaler in an Existing Project**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 You can also enable autoscaling **after** the project has been created.
 
