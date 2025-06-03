@@ -1,5 +1,5 @@
 # **Terraform Provider for Taikun**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 !!! Tip "Useful Information"
 
