@@ -4,7 +4,7 @@ hide:
 ---
 
 # **VMware Tanzu**
-:fontawesome-regular-handshake: Partner
+**:fontawesome-regular-handshake: Partner**
 
 [Tanzu](https://tanzu.vmware.com/tanzu) is a suite of products and services developed by VMware to facilitate the deployment, management, and modernization of applications across multi-cloud and hybrid-cloud environments. It aims to simplify and accelerate the process of building, running, and managing applications using modern cloud-native technologies.
 
