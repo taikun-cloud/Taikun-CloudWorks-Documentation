@@ -1,5 +1,5 @@
 # **Backup**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 ## **Create New Credentials**
 
