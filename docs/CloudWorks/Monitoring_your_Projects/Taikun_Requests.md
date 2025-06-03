@@ -1,5 +1,5 @@
 # **Taikun Requests**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 In this tab, you can see all requests made within Taikun by users of your account. In the table, you can see *Organization Name*, *User Name*, *User role*, *Request Type*, *End Point*, *Ip*, *Status*, *Created At,* and *Message*.
 
