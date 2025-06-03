@@ -4,7 +4,7 @@ hide:
 ---
 
 # **Keycloak SSO**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 To provide an additional layer of security, Partners can configure a [**Keycloak Single-Sign-On**](https://www.keycloak.org/) for the Organizations utilizing this solution.
 
