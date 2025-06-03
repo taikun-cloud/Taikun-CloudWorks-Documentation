@@ -4,7 +4,7 @@ hide:
 ---
 
 # **Red Hat OpenShift**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 [OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is a containerization and Kubernetes platform developed by Red Hat, a leading open-source software company. It is designed to simplify containerized applications’ deployment, management, and scaling. OpenShift provides a comprehensive set of tools and features for building, deploying, and running container-based applications in a cloud-native and DevOps-friendly manner.
 
