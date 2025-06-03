@@ -1,5 +1,5 @@
 # **Ticketing in Taikun**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Whenever you face any obstacles in Taikun, you have a direct channel to communicate with our team within the web application. *Ticketing* is Taikun’s Board view system for any questions and concerns. The page is divided into 4 sections.
 
