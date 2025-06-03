@@ -1,5 +1,5 @@
 # **Partner**
-:fontawesome-regular-handshake: Partner
+**:fontawesome-regular-handshake: Partner**
 
 The *Partner* section is designed for our strategic partners. It provides access to several additional features related to managing organizations. These features help partners efficiently manage their affiliated organizations and streamline their operations.
 
