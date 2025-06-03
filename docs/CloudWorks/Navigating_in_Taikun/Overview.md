@@ -2,7 +2,7 @@
 
 ## **Outline**
 
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 User panel is a section available to every User type of Taikun. Up here, you and your colleagues can access an overview of all your created Projects, create new Projects, and make your additions to the already existing ones. It is the main menu of Taikun, where all team members can locate all the necessary information about the state of your Clusters.
 
