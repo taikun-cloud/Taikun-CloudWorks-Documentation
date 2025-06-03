@@ -1,5 +1,5 @@
 # **Flavor Information**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Sort flavors by the size of CPU and RAM or use the search bar.
 
