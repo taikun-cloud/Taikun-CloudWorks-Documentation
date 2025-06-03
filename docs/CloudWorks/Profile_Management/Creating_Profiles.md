@@ -1,5 +1,5 @@
 # **Creating a Profile**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 To use Profiles in your Projects, you must add them in Taikun and select them during Project creation.
 
