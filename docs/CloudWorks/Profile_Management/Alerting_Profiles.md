@@ -1,5 +1,5 @@
 # **Alerting Profile**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Alerting Profiles allow you to receive notifications about the state of your Project using your preferred tool.
 
