@@ -1,5 +1,5 @@
 # **Enable Monitoring in Projects**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Some of the features described in the [**Available Monitoring Tools**](https://docs.taikun.cloud/CloudWorks/Monitoring_your_Projects/Available_Monitoring_tools/) are accessible only if a Project has Monitoring enabled. With this step, you connect your Project to other open-source projects, such as Grafana and Prometheus, to access advanced monitoring instruments. With their help, you will be able to quickly determine a reason for the cluster’s failure or quickly define existing bottlenecks that can be re-configured to improve the speed of your product.
 
