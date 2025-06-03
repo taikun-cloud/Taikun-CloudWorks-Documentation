@@ -1,5 +1,5 @@
 # **OpenStack**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 ## **Requirements for OpenStack**
 
@@ -56,7 +56,7 @@ Select an OpenStack Region.
 - **Public Network:**
 Choose a network, if available.
 
-#### Optional:
+### Optional:
 - Specify Availability Zone
 - Volume Types
 - Enable Import Network
