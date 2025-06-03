@@ -1,5 +1,5 @@
 # **Installing Applications**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 In Taikun, you can find more than 200 public and private repositories, which you can import with the Helm Repo URL.
 
