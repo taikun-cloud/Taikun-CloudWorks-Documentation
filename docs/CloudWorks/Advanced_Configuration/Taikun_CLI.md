@@ -1,5 +1,5 @@
 # **Taikun CLI**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User** | **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 You can manage Taikun’s resources directly from the command line.
 
