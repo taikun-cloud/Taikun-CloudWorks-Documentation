@@ -4,7 +4,7 @@ hide:
 ---
 
 # **Taikun API**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User** | **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 As a software developer, it is crucial to have access to all used instruments within the code you write. Taikun’s versatility allows you to use the API to manage your Kubernetes clusters without hesitation.
 
