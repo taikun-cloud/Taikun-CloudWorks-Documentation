@@ -1,5 +1,5 @@
 # **Chargeback**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 The *Chargeback* tab is an overview of prices for every billing rule you set up in your account. Change the *Start date* and *End date* to adjust the measured time period (for example from the beginning to the end of the month).
 
