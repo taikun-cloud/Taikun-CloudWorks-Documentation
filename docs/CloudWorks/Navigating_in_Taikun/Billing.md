@@ -1,5 +1,5 @@
 # **Billing**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 To view, manage and monitor the finances of your account, open up the Billing section in the left-hand navigation panel. Here you will find all information related to the payment of your account and the sections of Chargeback, Usage Reports, Subscription, and Payment.
 
