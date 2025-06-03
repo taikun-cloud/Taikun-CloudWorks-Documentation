@@ -1,5 +1,5 @@
 # **Configurations**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 The *Configurations* tab in the navigation panel allows you to set up additional advanced account configurations. Up there, you will find two sections: Slack and User Tokens.
 
