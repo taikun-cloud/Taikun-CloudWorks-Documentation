@@ -1,5 +1,5 @@
 # **AI Assistant**
-:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Use the power of AI to manage your Kubernetes cluster more efficiently. With our self-hosted solution, the AI assistant will help with fixing any issues with your Kubernetes cluster on the go.
 
