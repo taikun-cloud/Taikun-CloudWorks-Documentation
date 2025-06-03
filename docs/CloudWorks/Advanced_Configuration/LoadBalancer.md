@@ -1,5 +1,5 @@
 # **Load Balancer**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
 !!! Warning
 
