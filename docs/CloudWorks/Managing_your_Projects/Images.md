@@ -1,5 +1,5 @@
 # **Images**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 A Kubernetes Image is a container image that is deployed and managed within the cluster, which includes everything needed to run a piece of software, such as the code, runtime, libraries, environment variables, and configurations.
 
