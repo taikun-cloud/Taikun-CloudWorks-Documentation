@@ -1,5 +1,5 @@
 # **Kubernetes dashboard**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 At your Project page, select **"Dashboard"**.
 
