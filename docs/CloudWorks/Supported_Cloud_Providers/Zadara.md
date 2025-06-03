@@ -1,5 +1,5 @@
 # **Zadara**
-:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner
+**:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
 Zadara’s storage infrastructure is built for high availability and reliability, offering a wide range of storage options, including block, file, and object storage, as well as specialized solutions for specific use cases such as high-performance computing (HPC) and big data analytics.
 
