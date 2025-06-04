@@ -1,3 +1,82 @@
+## **June 2025**
+
+### **New Features**
+
+#### **Two-Factor Authentication (2FA)**
+
+* Available for both organization-wide and personal accounts to enhance login security.
+
+#### **vCluster Resource Quotas**
+
+* Configure usage limits (CPU, memory, storage) for individual vClusters. Includes a clean UI for defining and monitoring these quotas.
+
+#### **Limit Range Enforcement**
+
+* Support was added for Kubernetes LimitRange policies within vClusters. This allows users to define default, minimum, and maximum resource constraints (CPU, memory, and ephemeral storage) at the namespace level. LimitRanges ensure predictable resource usage, prevent overconsumption, and enforce fairness across multi-tenant environments. These limits are automatically applied when Pods omit resource requests or limits.
+
+#### **New resources support in liveops:**
+
+* Persistent Volume (PV) Visibility
+    * **Feature**: PVs are now viewable and manageable directly from the LiveOps dashboard.
+    * **Benefit**: Enhances real-time observability and operational control over Persistent Volumes, allowing for more efficient storage diagnostics and management.
+* Pod Disruption Budgets (PDBs)
+    * Ensure high availability by setting limits on voluntary pod evictions, helping to maintain application resilience during node drains or upgrades.
+* Limit Ranges
+    * Enforce default CPU/memory requests and limits at the namespace level, ensuring consistent and predictable resource allocation across workloads.
+* Resource Quotas
+    * Manage and limit aggregate resource usage per namespace, preventing resource exhaustion and ensuring fair multi-tenant cluster usage.
+
+#### **vCluster Resource Visualization**
+* Introduced visual dashboards showing real-time and historical graphs of vCluster-level resource metrics. This intuitive feature improves observability, debugging, and capacity planning across all vClusters.
+
+---
+
+### **Updates & Improvements**
+
+#### **Kubernetes Resource Filter Updates**
+
+* Advanced filtering options for more flexible and efficient resource navigation across Kubernetes workloads.
+
+#### **Virtual Machine (VM) Action Enhancements**
+
+* Improved user experience and reliability for core VM operations, including **start**, **stop**, **restart**, and **delete**.
+
+#### **Enhanced Ticket Filtering**
+
+* Added granular filters in the support system to accelerate and streamline issue tracking and resolution.
+
+#### **Improved Application Bindings**
+
+* Refined automation and feedback mechanisms during app-to-cluster and component bindings, ensuring smoother integration workflows.
+
+#### **Password Reset Functionality Improvement**
+
+Revamped the password reset process to improve security, clarity, and user experience, featuring:
+
+* Clearer feedback and messaging during reset flows
+* Enhanced email delivery and professionally formatted reset instructions
+
+### **Bug Fixes**
+
+* OpenShift Error Handling - Fixed misleading or missing error messages in OpenShift operations.
+* Spot Instance Errors (Azure & AWS) - Resolved inaccurate error reporting for Spot instance configurations.
+* Invalid Redirects - Fixed cases where users were redirected to unintended locations.
+* AI Suggestions Stability - Improved the reliability and relevance of AI-generated recommendations.
+
+### **Known Issues**
+* No major known issues reported in this release.
+
+### **Documentation Updates**
+
+* Updated guides and help content now include:
+    * Two-Factor Authentication setup
+    * vCluster resource quota configuration
+    * Limit Ranges for vClusters
+    * PV management in LiveOps
+    * Application binding instructions
+
+---
+
 ## **March 2025**
 
 ### **New Features**
