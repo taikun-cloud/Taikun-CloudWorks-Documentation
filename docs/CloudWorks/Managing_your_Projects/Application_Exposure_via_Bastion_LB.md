@@ -6,7 +6,7 @@ When you deploy an application to the cluster, you can expose it externally thro
 
 ## **Instructions**
 
-### 1. Define Service Type as NodePort
+### 1. Define Service Type as ClusterIP
 In the application’s parameters, set the `service.type` to `ClusterIP`.
 
 ```yaml
