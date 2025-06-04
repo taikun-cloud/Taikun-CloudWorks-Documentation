@@ -85,7 +85,7 @@ Here’s a sample of how the parameters might look in your application’s YAML 
 
 ```yaml
 service:
-  type: NodePort
+  type: ClusterIP
 
 ingress:
   enabled: true
