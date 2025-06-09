@@ -52,3 +52,81 @@ Kubernetes bash
 ///
 
 Use bash commands to interact with your Kubernetes cluster using the kubeconfig file.
+
+---
+
+## **Accessing Your Kubernetes Cluster from the Linux Terminal Using Kubeconfig**	
+
+### **Install `kubectl` on Linux (Debian/Ubuntu)**
+
+* **1\. Download the latest `kubectl` Binary**
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+
+* **2\. Make the Binary Executable**
+
+```bash
+chmod +x kubectl
+```
+
+* **3\. Move `kubectl` to a DIrectory in your PATH**
+
+```bash
+sudo mv kubectl /usr/local/bin/
+```
+
+!!! Note 
+	Alternatively you can use `~/.local/bin`, if you don't want to use `sudo`.
+
+* **4\. Verify the Installation**
+
+```bash
+kubectl version --client
+```
+
+### **Download the Kubeconfig**
+
+* Click the Download button next to the newly created kubeconfig.
+
+* Save it locally, e.g., as `~/Downloads/taikun-kube-config.yaml.`
+
+### **Configure your Terminal**
+
+#### **Option A: Temporary (for current terminal session)**
+
+```bash
+export KUBECONFIG=~/Downloads/taikun-kube-config.yaml
+kubectl cluster-info
+kubectl get nodes
+```
+
+**OR**
+
+```bash
+kubectl get nodes --kubeconfig=~/Downloads/taikun-kube-config.yaml
+```
+
+#### **Option B: Replace with your existing kubeconfig permanently**
+
+**replace** the config (if you don't need the old one):
+
+```bash
+mkdir -p ~/.kube
+mv ~/Downloads/taikun-kube-config.yaml ~/.kube/config
+```
+
+### **Test the Connection**
+
+You can verify your connection with basic commands:
+
+```bash
+kubectl get pods -A
+kubectl get services -A
+kubectl cluster-info
+kubectl get nodes
+```
+
+!!! Info
+	If `kubectl get nodes` fails with `Forbidden`, that means your role does not have cluster-level permissions (like access to node info). This is expected with the `view` role.
