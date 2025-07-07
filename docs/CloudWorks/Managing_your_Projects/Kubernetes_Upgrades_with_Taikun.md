@@ -6,14 +6,14 @@ Upgrading your Kubernetes cluster with Taikun ensures access to the latest featu
 
 ## **Requirements**
 
-- You have a Kubernetes cluster with at least two worker nodes in addition to the bastion and master nodes.
+- You have a Kubernetes cluster with at least one worker nodes in addition to the bastion and master nodes.
 - Your cluster is running an older version of Kubernetes.
 
 ---
 
 ## **Steps to Upgrade Your Kubernetes Cluster with Taikun**
 
-**Step 1: Create a Kubernetes Cluster with Two Worker Nodes.**
+**Step 1: Create a Kubernetes Cluster with one Worker Nodes.**
 
 **Step 2: Ensure the Cluster is Healthy.**
 
