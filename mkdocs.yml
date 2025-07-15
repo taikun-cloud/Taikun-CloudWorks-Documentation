@@ -147,6 +147,14 @@ nav:
           - Creating an Azure Cluster for AKS: CloudWorks/Advanced_Configuration/Creating_an_Azure_Cluster_for_AKS.md
           - Creating a GKE Cluster on Google Cloud: CloudWorks/Advanced_Configuration/Creating_a_GKE_Cluster_on_Google_Cloud.md
           - Creating an EKS Cluster in Auto Mode: CloudWorks/Advanced_Configuration/Creating_an_EKS_Cluster_in_Auto_Mode.md
+      - Exposing Applications:
+          - Exposing Applications: CloudWorks/Exposing_Applications/Exposing_Applications.md
+          - 01 Kubernetes DNS-Basics: CloudWorks/Exposing_Applications/01_Kubernetes_DNS-Basics.md
+          - 02 LoadBalancer: CloudWorks/Exposing_Applications/02_LoadBalancer.md
+          - 03 Taikun Ingress-Basics: CloudWorks/Exposing_Applications/03_Taikun_Ingress-Basics.md
+          - 04 Taikun Ingress-Managed Apps: CloudWorks/Exposing_Applications/04_Taikun_Ingress-Managed_Apps.md
+          - 05 Taikun Ingress-CertManager: CloudWorks/Exposing_Applications/05_Taikun_Ingress-CertManager.md
+          - 06 Taikun Link: CloudWorks/Exposing_Applications/06_Taikun_link.md 
       - Managing your Projects:
           - AI Assistant: CloudWorks/Managing_your_Projects/AI_assistant.md
           - Application Exposure via Bastion LB: CloudWorks/Managing_your_Projects/Application_Exposure_via_Bastion_LB.md
