@@ -177,7 +177,7 @@ When creating a Virtual Cluster, users can:
 |:-------------------:|:-------:|:-------:|:-----------:|:-------------:|
 | CPU                 |   4     |   8     |    100m     |     1000m     |
 | RAM                 |  8Gi    |  16Gi   |   128Mi     |     512Mi     |
-| Ephemeral Storage   |  5Gi    |  10Gi   |    20Mi     |      2Gi      |
+| Ephemeral Storage   |  10Gi   |  20Gi   |    20Mi     |      2Gi      |
 | Pods                |   –     |   50    |      –      |       –       |
 | PVCs                |   –     |   10    |      –      |       –       |
 | PVC Size            |   –     |  100Gi  |      –      |       –       |
