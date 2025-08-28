@@ -40,7 +40,7 @@ Add Kubeconfig
 - **Download:** Downloads a `.yaml` configuration file to access your Kubernetes cluster.
 - **Delete:** Deletes the kubeconfig file associated with your Kubernetes cluster.
 
-Your kubeconfig file in Taikun is already authenticated. To interact with your cluster, use the `kubectl` command-line tool.
+Your kubeconfig file in Taikun CloudWorks is already authenticated. To interact with your cluster, use the `kubectl` command-line tool.
 
 ---
 
