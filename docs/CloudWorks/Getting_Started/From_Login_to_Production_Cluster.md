@@ -1,12 +1,12 @@
 # **From Login to Production Cluster**
 
-## **What About Taikun?**
+## **What About Taikun CloudWorks?**
 
-Welcome to **Taikun**! Our platform is designed to simplify the lives of DevOps engineers and IT professionals by offering powerful tools for managing Kubernetes clusters and overall infrastructure.
+Welcome to **Taikun CloudWorks**! Our platform is designed to simplify the lives of DevOps engineers and IT professionals by offering powerful tools for managing Kubernetes clusters and overall infrastructure.
 
 ---
 
-## **Why Choose Taikun?**
+## **Why Choose Taikun CloudWorks?**
 
 Setting up a Kubernetes cluster manually can take days or even weeks. With Taikun, you can have a fully functional Kubernetes cluster ready in **just 5 minutes**. Our user-friendly interface and automation tools allow you to focus on **developing and deploying applications**, instead of spending time on the complexities of infrastructure setup.
 
@@ -16,7 +16,7 @@ This introduction will walk you through the basic features of Taikun.
 
 ## **Login and Password**
 
-If you’re new to Taikun, follow these steps to get started:
+If you’re new to Taikun CloudWorks, follow these steps to get started:
 
 1\. **Account Invitation**
    After signing up, you’ll receive an invitation to your account via email. Click the **“Visit”** button in the email to create your password.
@@ -26,7 +26,7 @@ If you’re new to Taikun, follow these steps to get started:
 
 ![Login](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/getting-started/from%20login/from.login.webp)
 /// caption 
-Taikun Login
+Taikun CloudWorks Login
 ///
 
 3\. **Keycloak Support**
@@ -37,4 +37,4 @@ Taikun Login
 
 ---
 
-Next, you can [connect your Cloud Provider in Taikun.](https://docs.taikun.cloud/CloudWorks/Getting_Started/Connect_your_Cloud/)
+Next, you can [connect your Cloud Provider in Taikun CloudWorks.](https://docs.taikun.cloud/CloudWorks/Getting_Started/Connect_your_Cloud/)
