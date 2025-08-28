@@ -6,9 +6,9 @@ hide:
 # **Taikun API**
 **:fontawesome-regular-user: User** | **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
-As a software developer, it is crucial to have access to all used instruments within the code you write. Taikun’s versatility allows you to use the API to manage your Kubernetes clusters without hesitation.
+As a software developer, it is crucial to have access to all used instruments within the code you write. Taikun CloudWorks’s versatility allows you to use the API to manage your Kubernetes clusters without hesitation.
 
-Our [**API documentation**](https://api.taikun.cloud/?_gl=1*pfsfl8*_gcl_au*MTE1MDQyODc1MS4xNzQwNTY2ODkx*_ga*MTM5MzIyNTUzNS4xNzQwMzkyMTAy*_ga_DSY6GPP30P*MTc0MjI5NzMzNC4yMi4xLjE3NDIyOTc2ODUuMC4wLjA.) contains all information about the authentication mechanisms, your Cloud instances’ control, Taikun users’ management, and much more!
+Our [**API documentation**](https://api.taikun.cloud/?_gl=1*pfsfl8*_gcl_au*MTE1MDQyODc1MS4xNzQwNTY2ODkx*_ga*MTM5MzIyNTUzNS4xNzQwMzkyMTAy*_ga_DSY6GPP30P*MTc0MjI5NzMzNC4yMi4xLjE3NDIyOTc2ODUuMC4wLjA.) contains all information about the authentication mechanisms, your Cloud instances’ control, Taikun CloudWorks users’ management, and much more!
 
 ---
 
