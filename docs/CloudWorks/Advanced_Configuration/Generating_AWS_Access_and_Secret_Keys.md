@@ -1,10 +1,10 @@
-# **AWS S3 + Taikun: Kubernetes Backup**
+# **AWS S3 + Taikun CloudWorks: Kubernetes Backup**
 
 Kubernetes, used for containerized applications, requires backups of pods, nodes, the control plane, and storage for data integrity and resilience. Taikun CloudWorks can back up your Kubernetes cluster to any S3-compatible storage. This guide will show you how to connect to AWS S3. CloudWorks allows you to back up all your Kubernetes cluster resources incrementally through periodically triggered snapshots.
 
 ## **Generating AWS Access and Secret Keys**
 
-To back up data in Taikun, users need an **Access Key**, **Secret Key**, **Region**, and **Endpoint**. In AWS, access and secret keys can be generated in two ways:
+To back up data in Taikun CloudWorks, users need an **Access Key**, **Secret Key**, **Region**, and **Endpoint**. In AWS, access and secret keys can be generated in two ways:
 
 - **IAM User** – Recommended for users requiring limited access.
 - **Security Credentials** – Used for full-access users.
@@ -131,9 +131,9 @@ Security Credentials
 
 ---
 
-## **Using AWS Credentials for Taikun Backup**
+## **Using AWS Credentials for Taikun CloudWorks Backup**
 
-Follow the Taikun backup guide to create and attach backup credentials to a cluster.
+Follow the Taikun CloudWorks backup guide to create and attach backup credentials to a cluster.
 When a user enables and schedules a backup, a bucket will be automatically created in the AWS console. 
 
 This bucket can be found under:
