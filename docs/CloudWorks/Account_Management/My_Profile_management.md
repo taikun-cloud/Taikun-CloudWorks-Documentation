@@ -3,7 +3,7 @@
 
 ## **Access My Profile**
 
-To access the **My Profile** menu, click on your profile in the top-right corner of Taikun. Here you can:
+To access the **My Profile** menu, click on your profile in the top-right corner of Taikun CloudWorks. Here you can:
 
 ---
 
@@ -22,8 +22,6 @@ To access the **My Profile** menu, click on your profile in the top-right corner
 
 ## **Profile Views**
 
-/// caption
-
 ![My Profile View](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/account-management/my%20profile/profile.11.webp)
 /// caption
 My Profile view
@@ -34,7 +32,6 @@ My Profile view
 Settings view
 ///
 
-///
 ---
 
 ## **Partner View**
@@ -57,7 +54,7 @@ Settings view
 
 ---
 
-## **Two-Factor Authentication (2FA) in Taikun**
+## **Two-Factor Authentication (2FA) in Taikun CloudWorks**
 
 ## **What is 2FA?**
 
@@ -101,7 +98,7 @@ If you’ve lost access to your app:
 
 * After **two wrong attempts**, the counter resets after 1 hour.
 * After **three wrong 2FA codes**, your account is **blocked**.
-* If blocked, contact **Taikun support**.
+* If blocked, contact **Taikun CloudWorks support**.
 
 ---
 
