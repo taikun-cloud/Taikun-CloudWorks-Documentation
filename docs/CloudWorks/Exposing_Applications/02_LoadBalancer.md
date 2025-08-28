@@ -28,9 +28,9 @@ When a `LoadBalancer` service is deployed:
 
 For long-term services, it is recommended to configure your DNS records to point to the external IP or hostname assigned by the cloud provider. This ensures a stable entry point for users, even if the underlying infrastructure changes.
 
-### **Load Balancers in Taikun**
+### **Load Balancers in Taikun CloudWorks**
 
-Users of **Taikun** with **OpenStack** cloud credentials can choose between two types of load balancers:
+Users of **Taikun CloudWorks** with **OpenStack** cloud credentials can choose between two types of load balancers:
 
 - **Octavia** (default OpenStack LB)
 - **Taikun LB** (custom implementation)
