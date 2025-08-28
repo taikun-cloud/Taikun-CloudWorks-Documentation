@@ -11,7 +11,7 @@ Although a virtual cluster shares the host cluster’s physical resources, such 
 
 ## **Creating a Virtual Cluster**
 
-There are two ways to create a vCluster in Taikun:
+There are two ways to create a vCluster in Taikun CloudWorks:
 
 ### Adding a vCluster from the Project's Page
 
@@ -66,7 +66,7 @@ Add Virtual Cluster
 ## **Virtual Cluster Quotas**
 
 ## **Overview**
-Virtual Clusters (VCs) support optional resource quotas to help manage and enforce resource consumption. Quotas apply at the **namespace level** of the host (parent) cluster and ensure fair resource usage among workloads. Users can choose from **predefined profiles** or define custom quotas during VC creation. When quotas are enabled, `ResourceQuota` and `LimitRange` objects are automatically applied to the namespace, constraining the workloads accordingly.
+Virtual Clusters (VCs) support optional resource quotas to help manage and enforce resource consumption. Quotas apply at the **namespace level** of the host (parent) cluster and ensure fair resource usage among workloads. Users can choose from **predefined profiles** or define custom quotas during VC creation. When quotas are enabled, [`ResourceQuota`](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [`LimitRange`](https://kubernetes.io/docs/concepts/policy/limit-range/) objects are automatically applied to the namespace, constraining the workloads accordingly.
 
 ---
 
@@ -92,6 +92,11 @@ Virtual Clusters (VCs) support optional resource quotas to help manage and enfor
 * **Limit**: If exceeded, the container will be terminated with OOM.
 
 ### **Ephemeral Storage**
+
+!!! warning "Storage type limitation for vClusters"
+
+    vClusters are **only supported with Longhorn or Local Path storage types**.  
+    Using other storage types (such as **NFS** or **OpenEBS**) is **not supported** and will result in errors.
 
 * Temporary disk space for logs, caches, or temp files.
 * Deleted when the container is removed
@@ -123,7 +128,7 @@ When creating a Virtual Cluster, users can:
 * Default Container RAM Request [Mi] - Containers with no requests specified will be assigned this request value
 * Default Container RAM Limit [Mi] - Containers with no limits specified will be assigned this limit value
 
-#### **Ephemeral Storage*
+#### **Ephemeral Storage**
 
 * Max Cluster Ephemeral Storage Requests [Gi] - Maximum total sum of ephemeral storage requests specified by containers in this virtual cluster
 * Max Cluster Ephemeral Storage Limits [Gi] - Maximum total sum of ephemeral storage limits specified by containers in this virtual cluster
