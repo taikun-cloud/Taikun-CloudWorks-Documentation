@@ -1,6 +1,6 @@
 # **03 - Taikun Ingress - basics**
 
-Taikun **recommends using Ingress** as the preferred method for exposing applications to the internet.
+Taikun CloudWorks **recommends using Ingress** as the preferred method for exposing applications to the internet.
 
 Ingress is a Kubernetes resource that provides routing to services within a cluster. It maps human-readable URLs to Kubernetes `ClusterIP` services, which in turn route traffic to the appropriate pods.
 
