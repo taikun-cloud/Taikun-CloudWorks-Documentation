@@ -1,6 +1,6 @@
 # **User Types**
 
-Understanding Taikun’s User Types is important as it will determine the privileges and permissions that each user has within your structure. There are three main roles that we will be covering: **:fontawesome-regular-user: User, :fontawesome-solid-user-tie: Manager, and :fontawesome-regular-handshake: Partner**.
+Understanding Taikun CloudWorks’s User Types is important as it will determine the privileges and permissions that each user has within your structure. There are three main roles that we will be covering: **:fontawesome-regular-user: User, :fontawesome-solid-user-tie: Manager, and :fontawesome-regular-handshake: Partner**.
 
 ---
 
@@ -10,7 +10,7 @@ Users are the most basic type of user on our platform. They have the least amoun
 ---
 
 ## **Manager** :fontawesome-solid-user-tie:
-Managers have more privileges than users and are typically responsible for managing an Organization within Taikun. In addition to the privileges that users have, managers are also able to create and manage Credentials, assign Projects to team members, and install Applications to clusters.
+Managers have more privileges than users and are typically responsible for managing an Organization within Taikun CloudWorks. In addition to the privileges that users have, managers are also able to create and manage Credentials, assign Projects to team members, and install Applications to clusters.
 
 ---
 
@@ -21,7 +21,7 @@ Partners have the most privileges of all three user roles. They typically have a
 	Taikun also has Owner User which can be assigned only to one member of an account. Owner Users have the full set of permissions similarly to Partner and are also granted additional access to management of payments.
 
 !!! Note
-	Partners can now white-label Taikun from the partner info section in the user info drawer.
+	Partners can now white-label Taikun CloudWorks from the partner info section in the user info drawer.
 
 ---
 
