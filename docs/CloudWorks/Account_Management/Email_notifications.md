@@ -2,27 +2,27 @@
 
 ## **Available Email Notifications**
 
-Taikun offers comprehensive action email services informing users about important events. These include emails for successful cluster creation, enabling or disabling monitoring, welcoming users to Taikun, and notifications regarding cluster failures or purging. Stay updated and connected with Taikun’s action emails.
+Taikun CloudWorks offers comprehensive action email services informing users about important events. These include emails for successful cluster creation, enabling or disabling monitoring, welcoming users to Taikun CloudWorks, and notifications regarding cluster failures or purging. Stay updated and connected with Taikun CloudWorks’s action emails.
 
 ---
 
 ## **Enable Email Notifications**
 
-To activate email notifications in Taikun, users need to turn on emails from the [**My Profile**](https://docs.taikun.cloud/CloudWorks/Account_Management/My_Profile_management/) section.
+To activate email notifications in Taikun CloudWorks, users need to turn on emails from the [**My Profile**](https://docs.taikun.cloud/CloudWorks/Account_Management/My_Profile_management/) section.
 
 ---
 
 ## **Types of Email Notifications**
 
-### Welcome to Taikun  
-Service messages are automated emails from the Taikun service to gain access to your account.
+### Welcome to Taikun CloudWorks
+Service messages are automated emails from the Taikun CloudWorks service to gain access to your account.
 
 ![Welcome to Taikun notification](https://raw.githubusercontent.com/itera-io/docs/refs/heads/main/Documentation/Images/Account%20Management/welcome-to-taikun-noti.webp)
 
 ---
 
 ### Forgotten Password  
-Email provides users with instructions and a link to reset passwords, ensuring secure access to their Taikun account.
+Email provides users with instructions and a link to reset passwords, ensuring secure access to their Taikun CloudWorks account.
 
 ![Forgotten Password notification](https://raw.githubusercontent.com/itera-io/docs/refs/heads/main/Documentation/Images/Account%20Management/reset-password-noti.webp)
 
@@ -43,14 +43,14 @@ Stay informed about your cluster’s performance with notifications when monitor
 ---
 
 ### Failed to Create Infrastructure  
-Email informs users about the unsuccessful attempt to establish the required infrastructure for their Project or service on Taikun.
+Email informs users about the unsuccessful attempt to establish the required infrastructure for their Project or service on Taikun CloudWorks.
 
 ![Failed to create infra notification](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/account-management/email-notifications/email-notifications-07.webp)
 
 ---
 
 ### Failed to Purge  
-Email notifies users about the unsuccessful deletion or purging of specific data or resources within their Taikun environment.
+Email notifies users about the unsuccessful deletion or purging of specific data or resources within their Taikun CloudWorks environment.
 
 ![Failed to purge notification](https://raw.githubusercontent.com/itera-io/docs/refs/heads/main/Documentation/Images/Account%20Management/purge-success-noti.webp)
 
