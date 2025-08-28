@@ -56,7 +56,7 @@ ingress:
       {{taikun_link_key}}
 ```
 
-Like NGINX, every application that supports Taikun Links has its own set of extra values to configure, enabling smooth integration with Taikun's infrastructure.
+Like NGINX, every application that supports Taikun Links has its own set of extra values to configure, enabling smooth integration with Taikun CloudWorks's infrastructure.
 
 !!! Info 
 	Here are the variables which are replaced with taikun link:
