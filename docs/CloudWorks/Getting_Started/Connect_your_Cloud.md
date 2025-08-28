@@ -32,4 +32,4 @@ Once your Cloud credentials are added, you can use Taikun CloudWorks to establis
 
 ---
 
-Next, we will proceed with [creating your first Taikun Project.](https://docs.taikun.cloud/CloudWorks/Getting_Started/Project_Creation/)
+Next, we will proceed with [creating your first Taikun CloudWorks Project.](https://docs.taikun.cloud/CloudWorks/Getting_Started/Project_Creation/)
