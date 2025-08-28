@@ -127,8 +127,8 @@ az ad sp create-for-rbac --name "name-of-app-registration" --role "Contributor" 
 
 ## **Add Cloud Credentials to Taikun CloudWorks**
 
-1. **Navigate to Taikun Cloud Credentials:**
-Go to **Taikun’s Cloud Credentials** page in the **Credentials** section.
+1. **Navigate to Taikun CloudWorks Cloud Credentials:**
+Go to **Taikun CloudWorks’s Cloud Credentials** page in the **Credentials** section.
 
 2. **Add Cloud Credentials:**
     * Click on **+ Add Cloud Credentials** and select **Azure** as the provider.
