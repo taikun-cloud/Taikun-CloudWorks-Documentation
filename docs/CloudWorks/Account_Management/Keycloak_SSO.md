@@ -13,7 +13,7 @@ To configure Keycloak SSO, follow these steps:
 ## **Steps to Configure Keycloak SSO**
 
 1. **First Step**
-   Open the **My Profile** menu within Taikun and find the **Keycloak Configurations** section.
+   Open the **My Profile** menu within Taikun CloudWorks and find the **Keycloak Configurations** section.
 
 2. **Second Step**
    Fill in the required fields to link your Keycloak account.
@@ -22,7 +22,7 @@ To configure Keycloak SSO, follow these steps:
    Hit **Save**.
 
 !!! Note
-	Only one type of login (either Keycloak or Taikun sign-in) is supported at a time.
+	Only one type of login (either Keycloak or Taikun CloudWorks sign-in) is supported at a time.
 
 ![Keycloak configurations](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/account-management/Keycloak-confi.webp)
 /// caption
