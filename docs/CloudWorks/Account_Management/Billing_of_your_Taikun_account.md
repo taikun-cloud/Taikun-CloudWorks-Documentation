@@ -3,10 +3,10 @@ hide:
  - toc
 ---
 
-# **Billing of your Taikun account**
+# **Billing of your Taikun CloudWorks account**
 **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
-If you registered your account on the Taikun webpage (*Taikun.cloud*), you can quickly check your subscription status by following these steps:
+If you registered your account on the Taikun CloudWorks webpage (*Taikun.cloud*), you can quickly check your subscription status by following these steps:
 
 ## **How to Check Your Subscription**
 
@@ -30,4 +30,3 @@ The **Subscription** menu lets you switch between various subscriptions by click
 ## **Monitor Used TCUs**
 
 To calculate your resource usage, you can access the **Usage Reports** section. There, you can see the total amount of TCUs spent in your account and calculate the pricing of the resources you use.
-
