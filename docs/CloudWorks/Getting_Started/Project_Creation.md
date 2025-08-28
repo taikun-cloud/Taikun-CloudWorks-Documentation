@@ -20,11 +20,11 @@ Add new project
 
 ## **Steps to Create a New Project**
 
-Follow these steps to create your first Project in Taikun:
+Follow these steps to create your first Project in Taikun CloudWorks:
 
-1\. **Ensure you have added a [Cloud Connection](https://docs.taikun.cloud/CloudWorks/Getting_Started/Connect_your_Cloud/)** to your Taikun account.
+1\. **Ensure you have added a [Cloud Connection](https://docs.taikun.cloud/CloudWorks/Getting_Started/Connect_your_Cloud/)** to your Taikun CloudWorks account.
 
-2\. Navigate to the **Projects** menu in Taikun.
+2\. Navigate to the **Projects** menu in Taikun CloudWorks.
 
 3\. Click **“Add Project”** in the top-right corner.
 
@@ -41,7 +41,7 @@ Follow these steps to create your first Project in Taikun:
 
 ## **Advanced Features After Project Creation**
 
-Once your Project is created, you can enable additional Taikun features such as:
+Once your Project is created, you can enable additional Taikun CloudWorks features such as:
 
 - **Alerting**
 - **Policy Profiles**
@@ -53,4 +53,4 @@ Each feature ensures your Project is configured to meet your organization's spec
 
 ---
 
-Next on, we will [create our first functioning Kubernetes cluster with Taikun!](https://docs.taikun.cloud/CloudWorks/Getting_Started/Creating_Kubernetes_cluster/)
+Next on, we will [create our first functioning Kubernetes cluster with Taikun CloudWorks!](https://docs.taikun.cloud/CloudWorks/Getting_Started/Creating_Kubernetes_cluster/)
