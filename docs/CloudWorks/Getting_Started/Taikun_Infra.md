@@ -1,13 +1,13 @@
 # **Taikun Infra**
 **:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
-Taikun Infra revolutionizes deploying clusters, introducing ease and speed that significantly enhance your experience. The platform’s robust capabilities accelerate your utilization of its resources, providing immediate access to cloud services and essential backup credentials. Upon creating a new account, you’ll receive a **15-day trial** of Taikun Infra, an excellent opportunity to delve into the platform’s features and unlock its full potential.
+Taikun Infra revolutionizes deploying clusters, introducing ease and speed that significantly enhance your experience. The platform’s robust capabilities accelerate your utilization of its resources, providing immediate access to cloud services and essential backup credentials. Upon creating a new account, you’ll receive a **14-day trial** of Taikun Infra, an excellent opportunity to delve into the platform’s features and unlock its full potential.
 
 During this trial period, users have access to a pre-defined allocation of resources, including:
 
-- **24GB of RAM**
-- **50 CPU units**
-- **1000GB of volume**
+- **24GB of vRAM**
+- **50 vCPU units**
+- **1000GB of storage**
 
 This resource package is thoughtfully designed to empower you to explore and harness the capabilities of Taikun Infra without constraint.
 
