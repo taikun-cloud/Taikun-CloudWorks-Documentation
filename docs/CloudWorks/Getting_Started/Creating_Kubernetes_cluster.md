@@ -7,7 +7,7 @@ hide:
 
 ## **Adding Nodes**
 
-To create a functioning Kubernetes cluster in Taikun, you need to add cloud servers to your Project. A Kubernetes cluster requires the following types of nodes:  
+To create a functioning Kubernetes cluster in Taikun CloudWorks, you need to add cloud servers to your Project. A Kubernetes cluster requires the following types of nodes:  
 
 - **Master Node**: Manages the cluster’s state, such as scaling and updates.
 - **Worker Nodes**: Run the actual applications.
@@ -15,7 +15,7 @@ To create a functioning Kubernetes cluster in Taikun, you need to add cloud serv
 
 ---
 
-## **Steps to Create Your First Cluster in Taikun**
+## **Steps to Create Your First Cluster in Taikun CloudWorks**
 
 Follow these steps to set up your Kubernetes cluster:
 
@@ -40,7 +40,7 @@ Follow these steps to set up your Kubernetes cluster:
 5\. **Deploy**
    Confirm the changes by pressing the "Deploy" button.
 
-**Congratulations!** You’ve successfully created your first Kubernetes cluster with Taikun!
+**Congratulations!** You’ve successfully created your first Kubernetes cluster with Taikun CloudWorks!
 
 ---
 
