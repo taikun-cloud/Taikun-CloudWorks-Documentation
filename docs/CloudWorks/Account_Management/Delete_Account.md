@@ -6,7 +6,7 @@ hide:
 # **Delete Account**
 **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
-You can delete an account in Taikun by following these steps:
+You can delete an account in Taikun CloudWorks by following these steps:
 
 ## **Steps to Delete Your Account**
 
