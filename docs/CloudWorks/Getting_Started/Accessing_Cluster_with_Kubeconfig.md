@@ -1,6 +1,6 @@
 # **Accessing Cluster with Kubeconfig**
 
-A kubeconfig file is a configuration file used by the Kubernetes command-line tool `kubectl` to connect to a specific Kubernetes cluster. The file contains the cluster’s server address and authentication credentials. It also allows you to switch between different clusters and contexts within a cluster, such as different namespaces or user accounts. With Taikun, you can quickly generate a kubeconfig file and use it on your machine to access the Kubernetes cluster you created in the previous step.
+A kubeconfig file is a configuration file used by the Kubernetes command-line tool `kubectl` to connect to a specific Kubernetes cluster. The file contains the cluster’s server address and authentication credentials. It also allows you to switch between different clusters and contexts within a cluster, such as different namespaces or user accounts. With Taikun CloudWorks, you can quickly generate a kubeconfig file and use it on your machine to access the Kubernetes cluster you created in the previous step.
 
 ---
 
