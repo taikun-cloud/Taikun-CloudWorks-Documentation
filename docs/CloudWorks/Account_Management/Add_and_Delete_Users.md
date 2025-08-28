@@ -1,7 +1,7 @@
 # **Add/Delete Users**
 **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
-A **:fontawesome-solid-user-tie: Manager** or **:fontawesome-regular-handshake: Partner** of your account can easily manage users within Taikun. Here’s how new User profiles can be created and deleted.
+A **:fontawesome-solid-user-tie: Manager** or **:fontawesome-regular-handshake: Partner** of your account can easily manage users within Taikun CloudWorks. Here’s how new User profiles can be created and deleted.
 
 ---
 
