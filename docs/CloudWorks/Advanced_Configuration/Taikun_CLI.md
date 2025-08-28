@@ -14,7 +14,7 @@ You can manage Taikun CloudWorks’s resources directly from the command line.
 3. **Step**
    Use the following command to move the binary: `sudo cp taikun /usr/local/bin/`
 
-Signing in to Taikun The TAikun CLI reads environment variables to authenticate to Taikun CloudWorks.
+Signing in to Taikun CloudWorks The Taikun CLI reads environment variables to authenticate to Taikun CloudWorks.
 
 **To authenticate with your Taikun CloudWorks account:**
 
