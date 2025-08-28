@@ -2,7 +2,7 @@
 
 **To create an Azure cluster for AKS, follow these two steps:**
 
-1.\ Create cloud credentials and add them to Taikun.
+1.\ Create cloud credentials and add them to Taikun CloudWorks.
 
 2.\ Create a cluster in the portal.
 
@@ -125,7 +125,7 @@ az ad sp create-for-rbac --name "name-of-app-registration" --role "Contributor" 
 
 ---
 
-## **Add Cloud Credentials to Taikun**
+## **Add Cloud Credentials to Taikun CloudWorks**
 
 1. **Navigate to Taikun Cloud Credentials:**
 Go to **Taikun’s Cloud Credentials** page in the **Credentials** section.
