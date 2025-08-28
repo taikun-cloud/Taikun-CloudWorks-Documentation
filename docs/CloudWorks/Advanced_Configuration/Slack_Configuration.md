@@ -1,7 +1,7 @@
 # **Slack Configuration**
 **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
-If your team uses Slack, you can receive all the changes made in your Taikun Organization directly in the Slack channel of your choice.
+If your team uses Slack, you can receive all the changes made in your Taikun CloudWorks Organization directly in the Slack channel of your choice.
 
 ![Slack Configuration](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/advanced%20configuration/slack%20configuration/slack.webp)
 /// caption
@@ -31,11 +31,11 @@ Select a name for your configuration.
 Insert the webhook URL from the Slack app; [this Slack guide can be of help](https://api.slack.com/messaging/webhooks).
 
 * **Channel**
-Select a Slack channel for receiving notifications from Taikun.
+Select a Slack channel for receiving notifications from Taikun CloudWorks.
 
 * **Type** - **Alert** Receive only alert-type notifications or **General** Receive all notifications.
 
-Now you will receive notifications in the selected Slack channel from your Taikun Projects!
+Now you will receive notifications in the selected Slack channel from your Taikun CloudWorks Projects!
 
 ![Slack Channel](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/advanced%20configuration/slack%20configuration/slack-app.png)
 /// caption 
@@ -43,4 +43,4 @@ Slack Channel
 ///
 
 !!! Note
-	Slack notifications will contain a link for direct access to your Taikun Project.
+	Slack notifications will contain a link for direct access to your Taikun CloudWorks Project.
