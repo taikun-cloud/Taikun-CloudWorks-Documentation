@@ -1,7 +1,7 @@
 # **Password Reset**
 **:fontawesome-regular-user: User** | **:fontawesome-solid-user-tie: Manager** | **:fontawesome-regular-handshake: Partner**
 
-To reset your Taikun password, follow these steps:
+To reset your Taikun CloudWorks password, follow these steps:
 
 ## **Reset Password via Login Page**
 
@@ -14,13 +14,13 @@ To reset your Taikun password, follow these steps:
 Password Reset
 ///
 
-The email from Taikun will include a link to a password reset page where you can create a new password.
+The email from Taikun CloudWorks will include a link to a password reset page where you can create a new password.
 
 ---
 
 ## **Reset Password via Profile Menu**
 
-If you're logged into Taikun, you can reset your password directly from the **Profile** menu:
+If you're logged into Taikun CloudWorks, you can reset your password directly from the **Profile** menu:
 
 1. Open the **Profile** menu.
 2. Navigate to the password change section.
