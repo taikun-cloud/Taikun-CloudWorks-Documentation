@@ -11,7 +11,7 @@ To create a functioning Kubernetes cluster in Taikun CloudWorks, you need to add
 
 - **Master Node**: Manages the cluster’s state, such as scaling and updates.
 - **Worker Nodes**: Run the actual applications.
-- **Bastion Node**: Connects Taikun to your cluster.
+- **Bastion Node**: Connects Taikun CloudWorks to your cluster.
 
 ---
 
