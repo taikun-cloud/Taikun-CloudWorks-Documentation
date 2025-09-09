@@ -12,7 +12,7 @@ Overview
 
 ## **Project Info**
 
-Under the **Servers** title is a brief description of the project – such as *Project*, *Organization, Project Status*, *Cloud Type*, *Kubernetes Version*, *Access Profile*, *Cloud Credentials*, *Kubernetes Profile*, *Alerting Profile*, *Policy Profile*, *Access IP Address* (if you use this address to SSH connect, please do not use user ubuntu, it’s in use by Taikun for managing the cluster) and *Kubernetes Health*. Some of these include links to e.g. cloud or profiles.
+Under the **Servers** title is a brief description of the project – such as *Project*, *Organization, Project Status*, *Cloud Type*, *Kubernetes Version*, *Access Profile*, *Cloud Credentials*, *Kubernetes Profile*, *Alerting Profile*, *Policy Profile*, *Access IP Address* (if you use this address to SSH connect, please do not use user ubuntu, it’s in use by Taikun CloudWorks for managing the cluster) and *Kubernetes Health*. Some of these include links to e.g. cloud or profiles.
 
 ![Project info](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/managing-your-projects/project%20contents/project_con.webp)
 /// caption 
@@ -53,7 +53,7 @@ Server status can be:
 
 ## **Reboot Servers**
 
-You can reboot servers directly from Taikun.
+You can reboot servers directly from Taikun CloudWorks.
 
 ![Actions](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/managing-your-projects/project%20contents/project.contents.4.webp)
 /// caption 
