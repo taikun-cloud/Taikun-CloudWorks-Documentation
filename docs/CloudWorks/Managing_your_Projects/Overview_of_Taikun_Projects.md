@@ -22,7 +22,7 @@ The status shows your servers’ current status and actions in the project in re
 
 - **Ready**: All servers in the project are prepared without any issues.
 - **Deleting**: One or more servers in your current project are being deleted.
-- **Failure**: One or more servers failed for some reason during the action (for instance, booting or creating).
+- **Failure**: One or more servers failed during the action (for example, during booting, creation, or an unsuccessful deployment).
 - **Pending**: One or more servers are pending, which means that, for example, they have not yet been created on the hosted platform.
 - **Updating**: One or more servers in the project are being updated by Taikun during the creation process.
 - **Upgrading**: One or more servers upgrade Kubernetes, cloud credentials, or others.
