@@ -12,7 +12,7 @@ Projects
 
 ## **Steps to create your first Project**
 
-1\. **Go to the Projects menu** in Taikun.
+1\. **Go to the Projects menu** in Taikun CloudWorks.
 
 2\. **Click "Add Project"** in the top right corner.
 
@@ -23,7 +23,7 @@ Projects
 !!! Warning
 	 If you want to use your Access Profile in a project, you need to create it **before** the Project and select it from the dropdown during creation.
 
-Some of Taikun’s features (**such as alerting, policy profiles, monitoring, backup, and expiration date**) can be enabled **after** your Project is created.
+Some of Taikun CloudWorks’s features (**such as alerting, policy profiles, monitoring, backup, and expiration date**) can be enabled **after** your Project is created.
 
 ---
 
