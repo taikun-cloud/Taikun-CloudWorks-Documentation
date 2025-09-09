@@ -1,7 +1,7 @@
 # **Showback rules**
 **:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
-Showback rules in Taikun are used to track and report the usage of cloud resources by individual users or departments within an organization. The primary purpose of the Showback Rules is to provide visibility into the costs associated with using Cloud resources and promote accountability for resource usage.
+Showback rules in Taikun CloudWorks are used to track and report the usage of cloud resources by individual users or departments within an organization. The primary purpose of the Showback Rules is to provide visibility into the costs associated with using Cloud resources and promote accountability for resource usage.
 
 ![Showback Rules](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/monitoring-your-projects/showback%20rules/showback_rules.webp)
 /// caption 
@@ -32,7 +32,7 @@ Use any valid Prometheus metrics.
 ### Kind
 Choose kind for the rule:
 
-- **General** – data source is Taikun
+- **General** – data source is Taikun CloudWorks
 - **External** – data source is external – you need to make sure correct Showback Credentials are used
 
 ### Type
