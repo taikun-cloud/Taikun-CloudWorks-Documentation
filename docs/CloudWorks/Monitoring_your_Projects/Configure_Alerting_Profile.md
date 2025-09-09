@@ -1,7 +1,7 @@
 # **Configure Alerting Profiles**
 **:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
-Taikun is designed to inform you of any issues or events in your Kubernetes clusters. If something goes wrong with one of your Projects, our tool can send notifications to any email address, webhook, or available integrations. Alerting Profiles can be added to your account’s new or existing Project.
+Taikun CloudWorks is designed to inform you of any issues or events in your Kubernetes clusters. If something goes wrong with one of your Projects, our tool can send notifications to any email address, webhook, or available integrations. Alerting Profiles can be added to your account’s new or existing Project.
 
 ---
 
@@ -51,4 +51,4 @@ Alternatively, you can attach your Alerting Profile within existing Projects:
 Add Alerting Profile in Settings 
 ///
 
-**[Prometheus](https://prometheus.io/):** With that, Taikun will send all notifications from Prometheus to the tool of your choice. You can click the link to learn more about Prometheus.
+**[Prometheus](https://prometheus.io/):** With that, Taikun CloudWorks will send all notifications from Prometheus to the tool of your choice. You can click the link to learn more about Prometheus.
