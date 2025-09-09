@@ -1,7 +1,7 @@
 # **Available Monitoring Tools**
 **:fontawesome-regular-user: User | :fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
-Taikun offers a variety of tables, dashboards, and logs that allow you to monitor the performance and health of your clusters easily. These features are readily available within the application, giving you quick and easy access to information. Whether you’re looking for a high-level overview of your clusters or need to dig into the details, our monitoring features have you covered.
+Taikun CloudWorks offers a variety of tables, dashboards, and logs that allow you to monitor the performance and health of your clusters easily. These features are readily available within the application, giving you quick and easy access to information. Whether you’re looking for a high-level overview of your clusters or need to dig into the details, our monitoring features have you covered.
 
 This article covers available Taikun features that will help you observe the state of your Kubernetes clusters.
 
@@ -9,7 +9,7 @@ This article covers available Taikun features that will help you observe the sta
 
 ## **Dashboard**
 
-The first page you’ll see after signing into Taikun is *Dashboard*. With its help, you can see an overview of the state of your existing Projects.
+The first page you’ll see after signing into Taikun CloudWorks is *Dashboard*. With its help, you can see an overview of the state of your existing Projects.
 
 Up here, you can find the 2 main elements for monitoring the state of your resources:
 
@@ -59,7 +59,7 @@ Tables
 
 ## **Project Function Buttons**
 
-Taikun offers various services to monitor the condition of Kubernetes clusters apart from the main Dashboard menu. To access these services, you need to open a Project where you have established a Kubernetes cluster and click one of the function buttons.
+Taikun CloudWorks offers various services to monitor the condition of Kubernetes clusters apart from the main Dashboard menu. To access these services, you need to open a Project where you have established a Kubernetes cluster and click one of the function buttons.
 
 There are several function buttons available, including:
 
