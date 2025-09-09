@@ -1,7 +1,7 @@
 # **Live Servers**
 **:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
-Managers of Taikun can access the Servers menu from the left-hand navigation panel to see the list of all running servers in the created Project to monitor their state.
+Managers of Taikun CloudWorks can access the Servers menu from the left-hand navigation panel to see the list of all running servers in the created Project to monitor their state.
 
 Every server in this menu is described by ID, Server Name, IP Address, Flavor, CPU/RAM/Disk Size, Role, Status, K8s Health, Created, and Actions. If you expand the table, you can see Created By, Last Modified, and Last Modified By.
 
