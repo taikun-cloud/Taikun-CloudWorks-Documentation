@@ -65,7 +65,7 @@ When the servers are Failing, use the repair button.
 To create a new server, click the "Add VM" button and fill in all the fields. You, as a **:fontawesome-regular-user: user**, can’t delete servers – think twice about which and how many servers you want to create.
 
 !!! Note
-	To create a Virtual Machine, **:fontawesome-solid-user-tie: Manager** of your Taikun account needs to bind a [**Flavor**](https://docs.taikun.cloud/CloudWorks/Managing_your_Projects/Flavor_Information/) and an [**Image**](https://docs.taikun.cloud/CloudWorks/Managing_your_Projects/Images/) to your Project along with creating a [**Standalone Profile**](https://docs.taikun.cloud/CloudWorks/Profile_Management/Standalone_Profiles/).
+	To create a Virtual Machine, **:fontawesome-solid-user-tie: Manager** of your Taikun CloudWorks account needs to bind a [**Flavor**](https://docs.taikun.cloud/CloudWorks/Managing_your_Projects/Flavor_Information/) and an [**Image**](https://docs.taikun.cloud/CloudWorks/Managing_your_Projects/Images/) to your Project along with creating a [**Standalone Profile**](https://docs.taikun.cloud/CloudWorks/Profile_Management/Standalone_Profiles/).
 
 ![Add VM](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/managing-your-projects/vms-management/vm.webp)
 /// caption 
