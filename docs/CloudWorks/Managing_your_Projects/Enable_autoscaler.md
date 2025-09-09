@@ -6,7 +6,7 @@ Autoscaling is a crucial feature in cloud computing and Kubernetes deployment. I
 - **Reduce operational costs**
 - **Ensure high availability of applications**
 
-With **Taikun’s autoscaling**, you can set rules to automatically scale workers based on conditions like **CPU utilization**. For example, when CPU usage exceeds a certain threshold, new workers will be added to the cluster.
+With **Taikun CloudWorks’s autoscaling**, you can set rules to automatically scale workers based on conditions like **CPU utilization**. For example, when CPU usage exceeds a certain threshold, new workers will be added to the cluster.
 
 ---
 
