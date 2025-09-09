@@ -1,7 +1,7 @@
 # **Installing Applications**
 **:fontawesome-solid-user-tie: Manager | :fontawesome-regular-handshake: Partner**
 
-In Taikun, you can find more than 200 public and private repositories, which you can import with the Helm Repo URL.
+In Taikun CloudWorks, you can find more than 200 public and private repositories, which you can import with the Helm Repo URL.
 
 ---
 
@@ -18,7 +18,7 @@ Public Repositories
 
 ## **Private Repositories**
 
-Taikun supports the addition of private repositories, allowing users to upload and manage their own custom applications and software packages. Additionally, Taikun offers support for OCI (Open Container Initiative) images, ensuring compatibility and flexibility in managing containerized applications.
+Taikun CloudWorks supports the addition of **private repositories**, allowing users to upload and manage their own custom applications and software packages. It supports both **Helm repositories** and **OCI (Open Container Initiative) repositories**, providing flexibility in how containerized applications are delivered. These repositories can be protected using **username and password authentication** for secure access.
 
 ![Private Repositories](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/managing-your-projects/applications/private_repo.webp)
 /// caption
@@ -43,17 +43,17 @@ Enable Repository
 Create Catalog
 ///
 
-Catalogs are curated collections of applications and software packages available for deployment within Taikun. To create a catalog, navigate to the **Catalogs** section in the Taikun dashboard and follow the prompts to define the catalog name, description, and any relevant metadata.
+Catalogs are curated collections of applications and software packages available for deployment within Taikun CloudWorks. To create a catalog, navigate to the **Catalogs** section in the Taikun dashboard and follow the prompts to define the catalog name, description, and any relevant metadata.
 
 ![Catalogs](https://rgw.cloudpoint.tcpro.cz/swift/v1/KEY_0efe203c42c0402f9402a570302dc066/new-docs/managing-your-projects/applications/catalog2.webp)
 /// caption
 Catalogs
 ///
 
-- When creating a catalog in Taikun, provide a clear description of the catalog and the applications it contains.
+- When creating a catalog in Taikun CloudWorks, provide a clear description of the catalog and the applications it contains.
 - Only applications whose repositories have been enabled will be visible.
 - To ensure a successful installation, it is recommended only to bind Projects that are healthy and in a ready state.
-- Parameter configurations can easily be located by browsing or searching applications within Taikun.
+- Parameter configurations can easily be located by browsing or searching applications within Taikun CloudWorks.
 - When installing an application, it is possible to specify a version or use the latest version automatically.
 - If the parameters are set to be both editable when installing and after installation, it is mandatory to configure them before proceeding with the installation.
 
@@ -88,7 +88,7 @@ Example of NGINX application extra values:
 ingress:
   annotations:
     nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: "true"
-    nginx.ingress.kubernetes.io/auth-tls-secret: default/cloudflare-tls-secret
+    nginx.ingress.kubernetes.io/auth-tls-secret: "{{taikun_link_namespace}}/cloudflare-tls-secret"
     nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
     nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
   enabled: true
@@ -106,7 +106,15 @@ ingress:
       {{taikun_link_key}}
 ```
 
-Like NGINX, every application that supports Taikun Links has its own set of extra values to configure, enabling smooth integration with Taikun's infrastructure.
+Like NGINX, every application that supports Taikun Links has its own set of extra values to configure, enabling smooth integration with Taikun CloudWorks's infrastructure.
+
+!!! Info 
+	Here are the variables which are replaced with taikun link:
+	
+	* `{{taikun_link_namespace}}` : namespace of the app
+	* `{{taikun_link_host}}` : url used to expose the app
+	* `{{taikun_link_certificate}}` : The certificate part (public key) of the generated TLS certificate for the application’s hostname.
+	* `{{taikun_link_key}}` : The private key part of the generated TLS certificate for the application’s hostname
 
 !!! Tip 
 	For Nginx application you should use this exact template, of extra values, without any change of variables
