@@ -1,6 +1,16 @@
-# **Kubernetes Upgrades with Taikun**
+# **Kubernetes Upgrades with Taikun CloudWorks**
 
-Upgrading your Kubernetes cluster with Taikun ensures access to the latest features and security patches, essential for maintaining a robust and secure environment. Taikun supports various cloud providers, including OpenStack, AWS, Azure, GCE, Tanzu, OpenShift, Zadara, and Zededa, allowing users to create bastion, worker, and master nodes for their Kubernetes clusters. When upgrading, it is crucial to have at least two worker nodes in addition to the bastion and master nodes. This configuration ensures that at least one healthy worker node remains available to maintain cluster functionality during the upgrade process. Taikun’s Kubernetes upgrade process follows a step-by-step procedure, providing a smooth transition between versions. When a user initiates an upgrade, the system updates the cluster to the next available version in sequence, guaranteeing compatibility and stability at each stage. If the cluster is healthy and the upgrade is successful, the upgrade button becomes available again, allowing the user to continue upgrading incrementally. This systematic process ensures that clusters remain stable and reliable throughout the upgrade.
+Upgrading your Kubernetes cluster with Taikun CloudWorks ensures access to the latest features and security patches, essential for maintaining a robust and secure environment. Taikun CloudWorks supports various cloud providers, including OpenStack, AWS, Azure, GCE, Tanzu, OpenShift, Zadara, and Zededa, allowing users to create bastion, worker, and master nodes for their Kubernetes clusters. When upgrading, it is crucial to have at least two worker nodes in addition to the bastion and master nodes. This configuration ensures that at least one healthy worker node remains available to maintain cluster functionality during the upgrade process. Taikun CloudWorks’s Kubernetes upgrade process follows a step-by-step procedure, providing a smooth transition between versions. When a user initiates an upgrade, the system updates the cluster to the next available version in sequence, guaranteeing compatibility and stability at each stage. If the cluster is healthy and the upgrade is successful, the upgrade button becomes available again, allowing the user to continue upgrading incrementally. This systematic process ensures that clusters remain stable and reliable throughout the upgrade.
+
+!!! warning "Keep Your Kubernetes Cluster Updated"
+
+    To ensure security, stability, and access to the latest features, it is **strongly recommended** to regularly upgrade your Kubernetes cluster to the **latest supported version**.  
+
+    Running outdated versions may expose your environment to:
+
+    - Unpatched security vulnerabilities
+    - Deprecated or removed APIs
+    - Reduced support from the Kubernetes community and cloud providers
 
 ---
 
@@ -11,7 +21,7 @@ Upgrading your Kubernetes cluster with Taikun ensures access to the latest featu
 
 ---
 
-## **Steps to Upgrade Your Kubernetes Cluster with Taikun**
+## **Steps to Upgrade Your Kubernetes Cluster with Taikun CloudWorks**
 
 **Step 1: Create a Kubernetes Cluster with one Worker Nodes.**
 
